@@ -4,14 +4,33 @@
     <title><![CDATA[go mod]]></title>
     <url>%2Fpost%2Fc91ca214e12a0715ec3ef2e5138df095%2F</url>
     <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
+      <categories>
+        <category>golang</category>
+        <category>基础</category>
+      </categories>
       <tags>
-        <tag>go</tag>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux ls]]></title>
+    <url>%2Fpost%2F5f8cb416ad6efe9e46d235a71f3caf21%2F</url>
+    <content type="text"><![CDATA[ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。 ls 命令选项| 选项 | 长选项 | 描述 || ——– | ——– | ——– || -a | –all | 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 || -d | –directory | 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。|| -F | –classify | 这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。|| -h | –human-readable | 当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。|| -l | |以长格式显示结果。|| -r | –reverse | 以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。|| -S | | 命令输出结果按照文件大小来排序。|| -t | | 按照修改时间来排序。| ls -l1234567891011121314151617[root@iZ28jjwy44gZ ~]# ls -l总用量 8976drwxr-xr-x 6 root root 4096 6月 19 07:16 blogdrwxr-xr-x 2 root root 4096 1月 26 2019 certbotdrwxr-xr-x 6 root root 4096 5月 31 12:07 composedrwxr-xr-x 3 root root 4096 1月 30 2019 goproductdrwxr-xr-x 4 root root 4096 1月 26 2019 logsdrwxr-xr-x 5 root root 4096 2月 13 2019 nginxdrwxr-xr-x 9 1001 1001 4096 1月 30 2019 nginx-1.15.8-rw-r--r-- 1 root root 1027862 12月 25 2018 nginx-1.15.8.tar.gzdrwxr-xr-x 18 root root 4096 1月 30 2019 openssl-1.1.0j-rw-r--r-- 1 root root 5411919 11月 20 2018 openssl-1.1.0j.tar.gzdrwxr-xr-x 9 1169 1169 12288 1月 30 2019 pcre-8.42-rw-r--r-- 1 root root 2081413 4月 2 2018 pcre-8.42.tar.gzdrwxr-xr-x 2 root root 4096 6月 24 14:32 phpdrwxr-xr-x 14 501 games 4096 1月 30 2019 zlib-1.2.11-rw-r--r-- 1 root root 607698 1月 16 2017 zlib-1.2.11.tar.gz drwxr-xr-x 6 root root 4096 6月 19 07:16 blog 对于文件的访问权限 文件的硬链接数目 文件所有者的用户名 文件所属用户组的名字 以字节数表示的文件大小 上次修改文件的时间和日期 文件名]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[高数一-函数]]></title>
     <url>%2Fpost%2Fd71b019935732176395383a7ddfe8294%2F</url>
     <content type="text"><![CDATA[函数集合定义 具有某种确定性质的对象的全体集合成为一个 集合 组成集合的个别对象成为该集合的 元素 表示 一般用大写 ABC 等表示集合 用小写 abc 等表示集合的元素 不含任何元素的集合叫做空集 用 ∅ 表示 a ∈ A 表示 a 是 A 中的元素 a ∉ A 表示 a 不是 A 中的元素 A = { x | x 具有性质 P(x)} 例：A = { x | x &gt; 0, x ∈ R} 特殊数集 N 自然数集 自然数由0开始，一个接一个，即用数码0，1，2，3，4……所表示的数。 Z 整数集 由全体整数组成的集合叫整数集。它包括全体正整数、全体负整数和零 Q 有理数集 有理数集，即由所有有理数所构成的集合。 有理数集是实数集的子集，即 Q ∈ R 有理数集是一个无穷集，不存在最大值或最小值。 R 实数集 实数集通俗地认为，通常包含所有有理数和无理数的集合就是实数集，通常用大写字母R表示 集合运算 设 A，B 为两个集合 若 ∀x(任意X) ∈ A,必有 x ∈ B。则 A ⊆ B ( A 包含于 B) 若 A ⊆ B， 且 B ⊆ A。则 A = B 并集：A ∪ B = { x | x ∈ A 或 x ∈ B } 交集：A ∩ B = { x | x ∈ A 且 x ∈ B } 子集：子集是一个数学概念：如果集合 A 的任意一个元素都是集合 B 的元素，那么集合 A 称为集合 B 的子集。 符号语言：若 ∀a ∈ A，均有 a ∈ B，则 A ⊆ B 差集：A \ B = { x | x ∈ A 且 x ∉ B} 余集：若 X 为全集或基本集， A 的余集(符号不知道怎么打) = X \ A = { x | x ∈ X 但 x ∉ A} 集合的运算法则 设 A，B，C 为三个集合，则有 交换律:A ∪ B = B ∪ A, A ∩ B = B ∩ A 结合律:(A ∪ B) ∪ C = A ∪ (B ∪ C) (A ∩ B) ∩ C = A ∩ (B ∩ C) 分配率(A ∪ B) ∩ C = (A ∩ C) ∪ (B ∩ C) (A ∩ B) ∪ C = (A ∪ C) ∩ (B ∪ C)]]></content>
+      <tags>
+        <tag>math</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[无头浏览器-Chrome]]></title>

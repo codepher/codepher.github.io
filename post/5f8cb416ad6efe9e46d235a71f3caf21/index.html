@@ -94,17 +94,18 @@
   };
 </script>
 
-  <meta name="description" content="简介很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是PhantomJS，但是在网上查阅了一些资料后得知PhantomJS停止维护了，而且新版的selenium好像不支持PhantomJS了，需要使用 Chrome 或者 Firefox。 因为我平时用的浏览器就是 Chrome，最后决定用 Chrome 的无头模式来做。">
+  <meta name="description" content="ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。  ls 命令选项| 选项 | 长选项 | 描述 || ——– | ——– | ——– || -a | –all | 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 || -d | –directory | 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无头浏览器-Chrome">
-<meta property="og:url" content="http://codepher.com/post/252506abb9ed56ebd68358ab46f79c54/index.html">
+<meta property="og:title" content="Linux ls">
+<meta property="og:url" content="http://codepher.com/post/5f8cb416ad6efe9e46d235a71f3caf21/index.html">
 <meta property="og:site_name" content="面向月亮的向日葵">
-<meta property="og:description" content="简介很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是PhantomJS，但是在网上查阅了一些资料后得知PhantomJS停止维护了，而且新版的selenium好像不支持PhantomJS了，需要使用 Chrome 或者 Firefox。 因为我平时用的浏览器就是 Chrome，最后决定用 Chrome 的无头模式来做。">
+<meta property="og:description" content="ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。  ls 命令选项| 选项 | 长选项 | 描述 || ——– | ——– | ——– || -a | –all | 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 || -d | –directory | 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T11:05:17.487Z">
+<meta property="og:updated_time" content="2019-09-03T06:29:25.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无头浏览器-Chrome">
-<meta name="twitter:description" content="简介很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是PhantomJS，但是在网上查阅了一些资料后得知PhantomJS停止维护了，而且新版的selenium好像不支持PhantomJS了，需要使用 Chrome 或者 Firefox。 因为我平时用的浏览器就是 Chrome，最后决定用 Chrome 的无头模式来做。">
+<meta name="twitter:title" content="Linux ls">
+<meta name="twitter:description" content="ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。  ls 命令选项| 选项 | 长选项 | 描述 || ——– | ——– | ——– || -a | –all | 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 || -d | –directory | 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，">
 
 
 
@@ -112,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://codepher.com/post/252506abb9ed56ebd68358ab46f79c54/">
+  <link rel="canonical" href="http://codepher.com/post/5f8cb416ad6efe9e46d235a71f3caf21/">
 
 
 
@@ -123,7 +124,7 @@
 </script>
 
   
-  <title>无头浏览器-Chrome | 面向月亮的向日葵</title>
+  <title>Linux ls | 面向月亮的向日葵</title>
   
 
 
@@ -286,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://codepher.com/post/252506abb9ed56ebd68358ab46f79c54/">
+    <link itemprop="mainEntityOfPage" href="http://codepher.com/post/5f8cb416ad6efe9e46d235a71f3caf21/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="codepher">
@@ -303,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">无头浏览器-Chrome
+          <h1 class="post-title" itemprop="name headline">Linux ls
 
               
             
@@ -329,7 +330,7 @@
                 
               
 
-              <time title="创建时间：2019-07-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-26T00:00:00+08:00">2019-07-26</time>
+              <time title="创建时间：2019-09-03 00:00:00 / 修改时间：14:29:25" itemprop="dateCreated datePublished" datetime="2019-09-03T00:00:00+08:00">2019-09-03</time>
             </span>
           
 
@@ -337,18 +338,30 @@
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-30 19:05:17" itemprop="dateModified" datetime="2019-07-30T19:05:17+08:00">2019-07-30</time>
-              </span>
-            
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/基础/" itemprop="url" rel="index"><span itemprop="name">基础</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -383,17 +396,34 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是<strong>PhantomJS</strong>，但是在网上查阅了一些资料后得知<strong>PhantomJS</strong>停止维护了，而且新版的<strong>selenium</strong>好像不支持<strong>PhantomJS</strong>了，需要使用 <strong>Chrome</strong> 或者 <strong>Firefox</strong>。
-因为我平时用的浏览器就是 <strong>Chrome</strong>，最后决定用 <strong>Chrome</strong> 的无头模式来做。</p>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>需要通过pip安装 <strong>selenium</strong> 模块 </li>
-<li>提前安装好 <strong>Chrome</strong> </li>
-<li>最后还需要下载一个<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">Chrome的驱动</a>才能使用，下载的时候需要根据本地 <strong>Chrome</strong> 的版本，下载对应的驱动。</li>
-<li>下载完 <strong>Chromedriver</strong> 后我是把 <strong>Chromedriver</strong> 这个驱动放到了环境变量里。这样方便写代码调用。</li>
-</ul>
-<hr>
-<p>## </p>
+        <h1 id="ls-命令"><a href="#ls-命令" class="headerlink" title="ls 命令"></a>ls 命令</h1><blockquote>
+<p>-ls 就能看到在当前目录下所有文件和子目录的列表。</p>
+</blockquote>
+<p>ls 命令选项<br>| 选项 | 长选项 | 描述 |<br>| ——– | ——– | ——– |<br>| -a | –all | 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 |<br>| -d | –directory | 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。|<br>| -F | –classify | 这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。|<br>| -h | –human-readable | 当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。|<br>| -l | |以长格式显示结果。|<br>| -r | –reverse | 以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。|<br>| -S | | 命令输出结果按照文件大小来排序。|<br>| -t | | 按照修改时间来排序。|</p>
+<h2 id="ls-l"><a href="#ls-l" class="headerlink" title="ls -l"></a>ls -l</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@iZ28jjwy44gZ ~]# ls -l</span><br><span class="line">总用量 8976</span><br><span class="line">drwxr-xr-x  6 root root     4096 6月  19 07:16 blog</span><br><span class="line">drwxr-xr-x  2 root root     4096 1月  26 2019 certbot</span><br><span class="line">drwxr-xr-x  6 root root     4096 5月  31 12:07 compose</span><br><span class="line">drwxr-xr-x  3 root root     4096 1月  30 2019 goproduct</span><br><span class="line">drwxr-xr-x  4 root root     4096 1月  26 2019 logs</span><br><span class="line">drwxr-xr-x  5 root root     4096 2月  13 2019 nginx</span><br><span class="line">drwxr-xr-x  9 1001  1001    4096 1月  30 2019 nginx-1.15.8</span><br><span class="line">-rw-r--r--  1 root root  1027862 12月 25 2018 nginx-1.15.8.tar.gz</span><br><span class="line">drwxr-xr-x 18 root root     4096 1月  30 2019 openssl-1.1.0j</span><br><span class="line">-rw-r--r--  1 root root  5411919 11月 20 2018 openssl-1.1.0j.tar.gz</span><br><span class="line">drwxr-xr-x  9 1169  1169   12288 1月  30 2019 pcre-8.42</span><br><span class="line">-rw-r--r--  1 root root  2081413 4月   2 2018 pcre-8.42.tar.gz</span><br><span class="line">drwxr-xr-x  2 root root     4096 6月  24 14:32 php</span><br><span class="line">drwxr-xr-x 14  501 games    4096 1月  30 2019 zlib-1.2.11</span><br><span class="line">-rw-r--r--  1 root root   607698 1月  16 2017 zlib-1.2.11.tar.gz</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>drwxr-xr-x</th>
+<th>6</th>
+<th>root</th>
+<th>root</th>
+<th>4096</th>
+<th>6月  19 07:16</th>
+<th>blog</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对于文件的访问权限</td>
+<td>文件的硬链接数目</td>
+<td>文件所有者的用户名</td>
+<td>文件所属用户组的名字</td>
+<td>以字节数表示的文件大小</td>
+<td>上次修改文件的时间和日期</td>
+<td>文件名</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -419,6 +449,15 @@
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
 
       
       
@@ -428,14 +467,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/post/d71b019935732176395383a7ddfe8294/" rel="next" title="高数一-函数">
+                <i class="fa fa-chevron-left"></i> 高数一-函数
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/post/d71b019935732176395383a7ddfe8294/" rel="prev" title="高数一-函数">
-                高数一-函数 <i class="fa fa-chevron-right"></i>
+              <a href="/post/c91ca214e12a0715ec3ef2e5138df095/" rel="prev" title="go mod">
+                go mod <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -606,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ls-命令"><span class="nav-number">1.</span> <span class="nav-text">ls 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-l"><span class="nav-number">1.1.</span> <span class="nav-text">ls -l</span></a></li></ol></li></ol></div>
             
 
           </div>
