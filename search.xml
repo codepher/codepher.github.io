@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[phantomjs基本使用]]></title>
+    <title><![CDATA[go mod]]></title>
+    <url>%2Fpost%2Fc91ca214e12a0715ec3ef2e5138df095%2F</url>
+    <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
+      <tags>
+        <tag>go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[高数一-函数]]></title>
+    <url>%2Fpost%2Fd71b019935732176395383a7ddfe8294%2F</url>
+    <content type="text"><![CDATA[函数集合定义 具有某种确定性质的对象的全体集合成为一个 集合 组成集合的个别对象成为该集合的 元素 表示 一般用大写 ABC 等表示集合 用小写 abc 等表示集合的元素 不含任何元素的集合叫做空集 用 ∅ 表示 a ∈ A 表示 a 是 A 中的元素 a ∉ A 表示 a 不是 A 中的元素 A = { x | x 具有性质 P(x)} 例：A = { x | x &gt; 0, x ∈ R} 特殊数集 N 自然数集 自然数由0开始，一个接一个，即用数码0，1，2，3，4……所表示的数。 Z 整数集 由全体整数组成的集合叫整数集。它包括全体正整数、全体负整数和零 Q 有理数集 有理数集，即由所有有理数所构成的集合。 有理数集是实数集的子集，即 Q ∈ R 有理数集是一个无穷集，不存在最大值或最小值。 R 实数集 实数集通俗地认为，通常包含所有有理数和无理数的集合就是实数集，通常用大写字母R表示 集合运算 设 A，B 为两个集合 若 ∀x(任意X) ∈ A,必有 x ∈ B。则 A ⊆ B ( A 包含于 B) 若 A ⊆ B， 且 B ⊆ A。则 A = B 并集：A ∪ B = { x | x ∈ A 或 x ∈ B } 交集：A ∩ B = { x | x ∈ A 且 x ∈ B } 子集：子集是一个数学概念：如果集合 A 的任意一个元素都是集合 B 的元素，那么集合 A 称为集合 B 的子集。 符号语言：若 ∀a ∈ A，均有 a ∈ B，则 A ⊆ B 差集：A \ B = { x | x ∈ A 且 x ∉ B} 余集：若 X 为全集或基本集， A 的余集(符号不知道怎么打) = X \ A = { x | x ∈ X 但 x ∉ A} 集合的运算法则 设 A，B，C 为三个集合，则有 交换律:A ∪ B = B ∪ A, A ∩ B = B ∩ A 结合律:(A ∪ B) ∪ C = A ∪ (B ∪ C) (A ∩ B) ∩ C = A ∩ (B ∩ C) 分配率(A ∪ B) ∩ C = (A ∩ C) ∪ (B ∩ C) (A ∩ B) ∪ C = (A ∪ C) ∩ (B ∪ C)]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[无头浏览器-Chrome]]></title>
     <url>%2Fpost%2F252506abb9ed56ebd68358ab46f79c54%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[简介很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是PhantomJS，但是在网上查阅了一些资料后得知PhantomJS停止维护了，而且新版的selenium好像不支持PhantomJS了，需要使用 Chrome 或者 Firefox。 因为我平时用的浏览器就是 Chrome，最后决定用 Chrome 的无头模式来做。 准备 需要通过pip安装 selenium 模块 提前安装好 Chrome 最后还需要下载一个Chrome的驱动才能使用，下载的时候需要根据本地 Chrome 的版本，下载对应的驱动。 下载完 Chromedriver 后我是把 Chromedriver 这个驱动放到了环境变量里。这样方便写代码调用。 ##]]></content>
   </entry>
 </search>
