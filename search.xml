@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[go mod]]></title>
-    <url>%2Fpost%2Fc91ca214e12a0715ec3ef2e5138df095%2F</url>
-    <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
+    <title><![CDATA[golang 交叉编译]]></title>
+    <url>%2Fpost%2Ff6eab270974ee0fbaf611254e9e11416%2F</url>
+    <content type="text"><![CDATA[Mac 下编译 Linux 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Windows 下编译 Mac 和 Linux 64位可执行程序 123456789SET CGO_ENABLED=0SET GOOS=darwinSET GOARCH=amd64go build main.goSET CGO_ENABLED=0SET GOOS=linuxSET GOARCH=amd64go build main.go GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）GOARCH：目标平台的体系架构（386、amd64、arm）交叉编译不支持 CGO 所以要禁用它 上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序]]></content>
       <categories>
         <category>golang</category>
-        <category>基础</category>
       </categories>
       <tags>
         <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux screen]]></title>
+    <url>%2Fpost%2F180caaa829345bfd949e059951dab6a8%2F</url>
+    <content type="text"><![CDATA[screen⌘ Command（或 Cmd）⌘Shift ⇧Option（或 Alt）⌥Control（或 Ctrl）⌃Caps Lock ⇪Fn]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Linux 软件</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -22,6 +33,18 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[go mod]]></title>
+    <url>%2Fpost%2Fc91ca214e12a0715ec3ef2e5138df095%2F</url>
+    <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
+      <categories>
+        <category>golang</category>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
       </tags>
   </entry>
   <entry>
