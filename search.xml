@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[965 单值二叉树 PHP]]></title>
     <url>%2Fpost%2Fd0ad05be6d45fad86cbf2deb91d4493c%2F</url>
     <content type="text"><![CDATA[#965 单值二叉树 PHP题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现12345678910111213141516171819202122232425262728293031323334&lt;?php/** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) &#123; if($root == null)&#123; return true; &#125; if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val))&#123; return false; &#125; if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false)&#123; return false; &#125; return true; &#125;&#125;]]></content>
       <categories>
