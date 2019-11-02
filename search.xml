@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode]]></title>
+    <url>%2Fpost%2Fd0ad05be6d45fad86cbf2deb91d4493c%2F</url>
+    <content type="text"><![CDATA[题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现12345678910111213141516171819202122232425262728293031323334&lt;?php/** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) &#123; if($root == null)&#123; return true; &#125; if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val))&#123; return false; &#125; if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false)&#123; return false; &#125; return true; &#125;&#125;]]></content>
+      <categories>
+        <category>PHP</category>
+        <category>算法</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOs 中安装Chrome+ChromeDriver]]></title>
+    <url>%2Fpost%2Fc0247538c4f3e46df13bd7991ce16b18%2F</url>
+    <content type="text"><![CDATA[安装Chrome1.安装Chrome1curl https://intoli.com/install-google-chrome.sh | bash 2.测试浏览器1google-chrome-stable --no-sandbox --headless --disable-gpu --screenshot https://www.baidu.com/ 会保存一张图片在当前路径 安装ChromeDriver查看Chrome版本1google-chrome --version 查找对应的驱动的网址 http://chromedriver.storage.googleapis.com/index.html*下载安装包1wget http://chromedriver.storage.googleapis.com/78.0.3904.70/chromedriver_linux64.zip 解压12345# 没有 unzip 使用 yum 安装即可unzip chromedriver_linux64.zip# 解压完成后可将可执行文件移到bin目录方便后续使用mv chromedriver /usr/bin/]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[golang 交叉编译]]></title>
     <url>%2Fpost%2Ff6eab270974ee0fbaf611254e9e11416%2F</url>
     <content type="text"><![CDATA[Mac 下编译 Linux 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Windows 下编译 Mac 和 Linux 64位可执行程序 123456789SET CGO_ENABLED=0SET GOOS=darwinSET GOARCH=amd64go build main.goSET CGO_ENABLED=0SET GOOS=linuxSET GOARCH=amd64go build main.go GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）GOARCH：目标平台的体系架构（386、amd64、arm）交叉编译不支持 CGO 所以要禁用它 上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序]]></content>
