@@ -6,6 +6,7 @@
     <content type="text"><![CDATA[题目描述 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。 拓展 二叉搜索树的性质： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 代码实现1234567891011121314151617181920212223242526272829303132/** * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @param Integer $L * @param Integer $R * @return TreeNode */ function trimBST($root, $L, $R) &#123; if($root-&gt;val === null)&#123; return null; &#125; if($root-&gt;val &gt; $R)&#123; return $this-&gt;trimBST($root-&gt;left,$L,$R); &#125; if($root-&gt;val &lt; $L)&#123; return $this-&gt;trimBST($root-&gt;right,$L,$R); &#125; $root-&gt;left = $this-&gt;trimBST($root-&gt;left,$L,$R); $root-&gt;right = $this-&gt;trimBST($root-&gt;right,$L,$R); return $root; &#125;&#125;]]></content>
       <categories>
         <category>算法</category>
+        <category>LeetCode</category>
       </categories>
       <tags>
         <tag>LeetCode</tag>
@@ -17,6 +18,7 @@
     <content type="text"><![CDATA[题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现PHP12345678910111213141516171819202122232425262728293031323334&lt;?php/** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) &#123; if($root == null)&#123; return true; &#125; if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val))&#123; return false; &#125; if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false)&#123; return false; &#125; return true; &#125;&#125; Golang12345678910111213141516171819202122/** * Definition for a binary tree node. * type TreeNode struct &#123; * Val int * Left *TreeNode * Right *TreeNode * &#125; */func isUnivalTree(root *TreeNode) bool &#123; if(root == nil)&#123; return true &#125; if((root.Left != nil &amp;&amp; root.Val != root.Left.Val) || (root.Right != nil &amp;&amp; root.Val != root.Right.Val))&#123; return false &#125; if(isUnivalTree(root.Left) == false || false == isUnivalTree(root.Right))&#123; return false &#125; return true&#125;]]></content>
       <categories>
         <category>算法</category>
+        <category>LeetCode</category>
       </categories>
       <tags>
         <tag>LeetCode</tag>
@@ -32,6 +34,7 @@
     <url>%2Fpost%2Ff6eab270974ee0fbaf611254e9e11416%2F</url>
     <content type="text"><![CDATA[Mac 下编译 Linux 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Windows 下编译 Mac 和 Linux 64位可执行程序 123456789SET CGO_ENABLED=0SET GOOS=darwinSET GOARCH=amd64go build main.goSET CGO_ENABLED=0SET GOOS=linuxSET GOARCH=amd64go build main.go GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）GOARCH：目标平台的体系架构（386、amd64、arm）交叉编译不支持 CGO 所以要禁用它 上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序]]></content>
       <categories>
+        <category>基础</category>
         <category>golang</category>
       </categories>
       <tags>
@@ -43,8 +46,8 @@
     <url>%2Fpost%2F180caaa829345bfd949e059951dab6a8%2F</url>
     <content type="text"><![CDATA[screen⌘ Command（或 Cmd）⌘Shift ⇧Option（或 Alt）⌥Control（或 Ctrl）⌃Caps Lock ⇪Fn]]></content>
       <categories>
+        <category>基础</category>
         <category>Linux</category>
-        <category>Linux 软件</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -55,8 +58,8 @@
     <url>%2Fpost%2F5f8cb416ad6efe9e46d235a71f3caf21%2F</url>
     <content type="text"><![CDATA[ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。 ls 命令选项 选项 长选项 描述 -a –all 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 -d –directory 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。 -F –classify 这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。 -h –human-readable 当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。 -l - 以长格式显示结果。 -r –reverse 以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。 -S - 命令输出结果按照文件大小来排序。 -t - 按照修改时间来排序。 ls -l1234567891011121314151617[root@iZ28jjwy44gZ ~]# ls -l总用量 8976drwxr-xr-x 6 root root 4096 6月 19 07:16 blogdrwxr-xr-x 2 root root 4096 1月 26 2019 certbotdrwxr-xr-x 6 root root 4096 5月 31 12:07 composedrwxr-xr-x 3 root root 4096 1月 30 2019 goproductdrwxr-xr-x 4 root root 4096 1月 26 2019 logsdrwxr-xr-x 5 root root 4096 2月 13 2019 nginxdrwxr-xr-x 9 1001 1001 4096 1月 30 2019 nginx-1.15.8-rw-r--r-- 1 root root 1027862 12月 25 2018 nginx-1.15.8.tar.gzdrwxr-xr-x 18 root root 4096 1月 30 2019 openssl-1.1.0j-rw-r--r-- 1 root root 5411919 11月 20 2018 openssl-1.1.0j.tar.gzdrwxr-xr-x 9 1169 1169 12288 1月 30 2019 pcre-8.42-rw-r--r-- 1 root root 2081413 4月 2 2018 pcre-8.42.tar.gzdrwxr-xr-x 2 root root 4096 6月 24 14:32 phpdrwxr-xr-x 14 501 games 4096 1月 30 2019 zlib-1.2.11-rw-r--r-- 1 root root 607698 1月 16 2017 zlib-1.2.11.tar.gz drwxr-xr-x 6 root root 4096 6月 19 07:16 blog 对于文件的访问权限 文件的硬链接数目 文件所有者的用户名 文件所属用户组的名字 以字节数表示的文件大小 上次修改文件的时间和日期 文件名]]></content>
       <categories>
-        <category>Linux</category>
         <category>基础</category>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -67,8 +70,8 @@
     <url>%2Fpost%2Fc91ca214e12a0715ec3ef2e5138df095%2F</url>
     <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
       <categories>
-        <category>golang</category>
         <category>基础</category>
+        <category>golang</category>
       </categories>
       <tags>
         <tag>golang</tag>
