@@ -5,7 +5,6 @@
     <url>%2Fpost%2F39a05a73cee7274b5d07ab816d4af700%2F</url>
     <content type="text"><![CDATA[题目描述 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。 拓展 二叉搜索树的性质： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 代码实现1234567891011121314151617181920212223242526272829303132/** * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @param Integer $L * @param Integer $R * @return TreeNode */ function trimBST($root, $L, $R) &#123; if($root-&gt;val === null)&#123; return null; &#125; if($root-&gt;val &gt; $R)&#123; return $this-&gt;trimBST($root-&gt;left,$L,$R); &#125; if($root-&gt;val &lt; $L)&#123; return $this-&gt;trimBST($root-&gt;right,$L,$R); &#125; $root-&gt;left = $this-&gt;trimBST($root-&gt;left,$L,$R); $root-&gt;right = $this-&gt;trimBST($root-&gt;right,$L,$R); return $root; &#125;&#125;]]></content>
       <categories>
-        <category>LeetCode</category>
         <category>算法</category>
       </categories>
       <tags>
@@ -18,7 +17,6 @@
     <content type="text"><![CDATA[题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现PHP12345678910111213141516171819202122232425262728293031323334&lt;?php/** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) &#123; if($root == null)&#123; return true; &#125; if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val))&#123; return false; &#125; if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false)&#123; return false; &#125; return true; &#125;&#125; Golang12345678910111213141516171819202122/** * Definition for a binary tree node. * type TreeNode struct &#123; * Val int * Left *TreeNode * Right *TreeNode * &#125; */func isUnivalTree(root *TreeNode) bool &#123; if(root == nil)&#123; return true &#125; if((root.Left != nil &amp;&amp; root.Val != root.Left.Val) || (root.Right != nil &amp;&amp; root.Val != root.Right.Val))&#123; return false &#125; if(isUnivalTree(root.Left) == false || false == isUnivalTree(root.Right))&#123; return false &#125; return true&#125;]]></content>
       <categories>
         <category>算法</category>
-        <category>LeetCode</category>
       </categories>
       <tags>
         <tag>LeetCode</tag>
