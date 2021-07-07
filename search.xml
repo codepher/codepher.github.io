@@ -1,9 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[树莓派默认登陆密码]]></title>
+    <url>%2F%2Fpost%2Fnotes%2FraspberryPi%2F%E6%A0%91%E8%8E%93%E6%B4%BE%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81.html</url>
+    <content type="text"><![CDATA[树莓派默认密码 默认用户是 pi 密码为 raspberry]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux 慢网速]]></title>
+    <url>%2F%2Fpost%2Fnotes%2FLinux%20%E6%85%A2%E7%BD%91%E9%80%9F.html</url>
+    <content type="text"><![CDATA[sudo tc qdisc add dev ens33 root netem delay 500ms #设置500ms的延迟 sudo tc qdisc add dev ens33 root netem loss 50% #设置50%的丢包率 sudo tc qdisc add dev ens33 root netem delay 300ms loss 50% sudo tc qdisc del dev ens33 root]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[dtls config]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fdtls%20config.html</url>
+    <content type="text"><![CDATA[// Config is used to configure a DTLS client or server. // After a Config is passed to a DTLS function it must not be modified. type Config struct { // Certificates contains certificate chain to present to the other side of the connection. // Server MUST set this if PSK is non-nil // client SHOULD sets this so CertificateRequests can be handled if PSK is non-nil // 证书 Certificates []tls.Certificate // CipherSuites is a list of supported cipher suites. // If CipherSuites is nil, a default list is used // 加密算法 加密字典 CipherSuites []CipherSuiteID // CustomCipherSuites is a list of CipherSuites that can be // provided by the user. This allow users to user Ciphers that are reserved // for private usage. // CustomCipherSuites func() []CipherSuite // SignatureSchemes contains the signature and hash schemes that the peer requests to verify. SignatureSchemes []tls.SignatureScheme // SRTPProtectionProfiles are the supported protection profiles // Clients will send this via use_srtp and assert that the server properly responds // Servers will assert that clients send one of these profiles and will respond as needed SRTPProtectionProfiles []SRTPProtectionProfile // ClientAuth determines the server&#39;s policy for // TLS Client Authentication. The default is NoClientCert. ClientAuth ClientAuthType // RequireExtendedMasterSecret determines if the &quot;Extended Master Secret&quot; extension // should be disabled, requested, or required (default requested). // 加密扩展类型 ExtendedMasterSecret ExtendedMasterSecretType // FlightInterval controls how often we send outbound handshake messages // defaults to time.Second FlightInterval time.Duration // PSK sets the pre-shared key used by this DTLS connection // If PSK is non-nil only PSK CipherSuites will be used PSK PSKCallback PSKIdentityHint []byte // InsecureSkipVerify controls whether a client verifies the // server&#39;s certificate chain and host name. // If InsecureSkipVerify is true, TLS accepts any certificate // presented by the server and any host name in that certificate. // In this mode, TLS is susceptible to man-in-the-middle attacks. // This should be used only for testing. InsecureSkipVerify bool // InsecureHashes allows the use of hashing algorithms that are known // to be vulnerable. InsecureHashes bool // VerifyPeerCertificate, if not nil, is called after normal // certificate verification by either a client or server. It // receives the certificate provided by the peer and also a flag // that tells if normal verification has succeedded. If it returns a // non-nil error, the handshake is aborted and that error results. // // If normal verification fails then the handshake will abort before // considering this callback. If normal verification is disabled by // setting InsecureSkipVerify, or (for a server) when ClientAuth is // RequestClientCert or RequireAnyClientCert, then this callback will // be considered but the verifiedChains will always be nil. VerifyPeerCertificate func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error // RootCAs defines the set of root certificate authorities // that one peer uses when verifying the other peer&#39;s certificates. // If RootCAs is nil, TLS uses the host&#39;s root CA set. // ca根证书 RootCAs *x509.CertPool // ClientCAs defines the set of root certificate authorities // that servers use if required to verify a client certificate // by the policy in ClientAuth. ClientCAs *x509.CertPool // ServerName is used to verify the hostname on the returned // certificates unless InsecureSkipVerify is given. ServerName string LoggerFactory logging.LoggerFactory // ConnectContextMaker is a function to make a context used in Dial(), // Client(), Server(), and Accept(). If nil, the default ConnectContextMaker // is used. It can be implemented as following. // // func ConnectContextMaker() (context.Context, func()) { // return context.WithTimeout(context.Background(), 30*time.Second) // } ConnectContextMaker func() (context.Context, func()) // MTU is the length at which handshake messages will be fragmented to // fit within the maximum transmission unit (default is 1200 bytes) MTU int // ReplayProtectionWindow is the size of the replay attack protection window. // Duplication of the sequence number is checked in this window size. // Packet with sequence number older than this value compared to the latest // accepted packet will be discarded. (default is 64) ReplayProtectionWindow int // KeyLogWriter optionally specifies a destination for TLS master secrets // in NSS key log format that can be used to allow external programs // such as Wireshark to decrypt TLS connections. // See https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format. // Use of KeyLogWriter compromises security and should only be // used for debugging. KeyLogWriter io.Writer }]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[golang grpc]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20grpc.html</url>
+    <content type="text"><![CDATA[安装1.从github上下载protobuf3 protobuf3下载地址 有很多语言版本的，mac下选择第一个。 2.下载下来后解压压缩包，并进入目录 cd protobuf-3.7.0/3.设置编译目录 ./configure --prefix=/usr/local/protobuf4.切换到root用户 sudo -i5.安装 make make install6.配置环境变量 找到用户目录/Users/pauljiang 的 .bash_profile文件并编辑 vim .bash_profile按一下回车键 按i进入编辑模式 添加 export PROTOBUF=/usr/local/protobuf export PATH=$PROTOBUF/bin:$PATHsource一下使文件生效 source .bash_profile7.测试安装结果 protoc --version 生成中间文件protoc --go_out=../services Prod.protoprotoc --go_out=plugins=grpc:../service Prod.protoopenssl 生成证书#生成 openssl genrsa -aes128 -out fd.key 2048 openssl req -new -key fd.key -out fd.csr #删除密码 openssl rsa -in fd.key -out fd-public.key openssl x509 -req -days 365 -in fd.csr -signkey fd.key -out fd.crt]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[golang json]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20json.html</url>
+    <content type="text"><![CDATA[jsonstruct &gt; json json.Marshal() json &gt; interface{} json.Unmarshal() tag type Persion struct{ Name string `json:&quot;-&quot;` //忽略 Name string `json:&quot;name&quot;`// 转成json的字段值 Name string `json:&quot;name,omitempty&quot;` // omitempty 空值/零值时会省略不转换 Name string `json:&quot;,omitempty&quot;` //使用字段名作为json名，并且会跳过零值 }]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[golang 三色标记法]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95.html</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[golang MPG]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20MPG.html</url>
+    <content type="text"><![CDATA[MPG M 指 Machine,一个 M 关联一个内核线程 由操作系统管理。 数量问题：Go语言本身限定 M 的上限是1000，或在 runtime/debug 包中的 SetMaxThreads() 设置。 M 动态创建，有一个 M 阻塞（goroutine）,会创建新的 M。如果有M空闲，会回收或眨眼 P 指 处理器(Processor), 代表了 M 所需的上下文环境，也是处理用户级代码逻辑的处理器。负责衔接 M 和 G 的上下文调度，将等待执行的 G 与 M 对接。 数量问题: 环境变量 $GOMAXPROCS，或在程序中通过 runtime.GOMAXPROCS(runtime.NumCPU())设置。 G 指 Goroutine，本质是一种轻量级的线程。包括了调用栈，重要的调度信息，如 channel 等。 创建 goroutine 栈内存消耗 2kb，运行过程中内存不够会自动扩容 所有协程都是同级的，不分父子关系。]]></content>
+      <categories>
+        <category>golang</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue 指令]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fvue%2Fvue%20%E6%8C%87%E4%BB%A4.html</url>
+    <content type="text"><![CDATA[v-for : 循环渲染 v-if : v-html : v-on : 注册事件 简写: @ 支持指令修饰符 @click.prevent 禁止默认事件 @click.stop 禁止冒泡 v-bind : 绑定动态属性 简写: : v-show : v-model : 双向绑定 v-slot : v-text : v-pre : v-cloak : v-once : v-key : -]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue 属性]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fvue%2Fvue%20%E5%B1%9E%E6%80%A7.html</url>
+    <content type="text"></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[acme.sh 安装ssl证书]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Facme.sh%20%E5%AE%89%E8%A3%85ssl%E8%AF%81%E4%B9%A6.html</url>
+    <content type="text"><![CDATA[查看已申请列表 acme.sh --list 申请证书 acme.sh --issue -d www.your-app.com -w /home/ubuntu/www/your-app/current/public 移动证书 acme.sh --installcert -d www.your-app.com \ --keypath /home/ubuntu/www/ssl/www.your-app.com.key \ --fullchainpath /home/ubuntu/www/ssl/www.your-app.com.key.pem \ --reloadcmd &quot;sudo service nginx force-reload&quot;nginx 单独设置项目目录 适合反向代理的项目 或者 不想侵入项目目录的情况 location /.well-known/ { root /usr/share/nginx/portainer index index.html; }]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[docker php 安装扩展]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fdocker%20php%20%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95.html</url>
+    <content type="text"><![CDATA[进入容器 docker exec -it php /bin/bash 至目录下 cd /usr/local/bin 安装扩展 ./docker-php-ext-install pdo_mysql 安装扩展 ./docker-php-ext-install mysql 重启容器 docker php restart]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx 部分配置]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fnginx%20%E9%83%A8%E5%88%86%E9%85%8D%E7%BD%AE.html</url>
+    <content type="text"><![CDATA[转至https server { listen 80; server_name host; rewrite ^(.*)$ https://${server_name}$1 permanent; } php5.6 location ~ \.php$ { # 设置监听端口 fastcgi_pass 127.0.0.1:9056; # 设置nginx的默认首页文件(上面已经设置过了，可以删除) fastcgi_index index.php; # 设置脚本文件请求的路径 fastcgi_param SCRIPT_FILENAME /www/dir/$fastcgi_script_name; #fastcgi_param SCRIPT_NAME $fastcgi_script_name; # 引入fastcgi的配置文件 include fastcgi_params; }]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[通过docker安装多版本PHP]]></title>
+    <url>%2F%2Fpost%2Fnotes%2F%E9%80%9A%E8%BF%87docker%E5%AE%89%E8%A3%85%E5%A4%9A%E7%89%88%E6%9C%ACPHP.html</url>
+    <content type="text"><![CDATA[phpdocker run -p 9072:9000 --name php72-fpm -v /usr/share/nginx/html:/www -v $PWD/conf/php72:/usr/local/etc/php -v /var/log/php72:/phplogs -d php:7.2-fpm docker run -p 9056:9000 –name php56-fpm -v /usr/share/nginx/html:/www -d php:5.6-fpm - nginxserver { listen 80; server_name php72.codepher.com; # 默认网站根目录（www目录） root /usr/share/nginx/html; # Load configuration files for the default server block. #include /etc/nginx/default.d/*.conf; location / { # 这里改动了 定义首页索引文件的名称 index index.php index.html index.htm; } error_page 404 /404.html; location = /40x.html { } error_page 500 502 503 504 /50x.html; location = /50x.html { } # 这里新加的 # PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI协议默认配置. # Fastcgi服务器和程序(PHP,Python)沟通的协议. location ~ \.php$ { # 设置监听端口 fastcgi_pass 127.0.0.1:9072; # 设置nginx的默认首页文件(上面已经设置过了，可以删除) fastcgi_index index.php; # 设置脚本文件请求的路径 fastcgi_param SCRIPT_FILENAME /www/$fastcgi_script_name; # 引入fastcgi的配置文件 include fastcgi_params; } } - portainerupstream portainer { server 127.0.0.1:9000;} server{ listen 80; server_name portainer.backend.codepher.com; # access_log logs/portainer.backend.codepher.com.access.log main; # error_log logs/portainer.backend.codepher.com.error.log; # root html; index index.html; location /.well-known/ { root /usr/share/nginx/portainer index index.html; } #Proxy Settings proxy_redirect off; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504; proxy_max_temp_file_size 0; proxy_connect_timeout 90; proxy_send_timeout 90; proxy_read_timeout 90; proxy_buffer_size 4k; proxy_buffers 4 32k; proxy_busy_buffers_size 64k; proxy_temp_file_write_size 64k; ## send request ## location / { proxy_pass http://portainer; } - mysqlsudo docker run -p 3306:3306 –name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6```]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F%2Fpost%2Fnotes%2Fdocker.html</url>
+    <content type="text"><![CDATA[Forbidden path outside the build context: ../dist/ () 禁止]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac 终端命令整理]]></title>
+    <url>%2F%2Fpost%2Fnotes%2FMac%20%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86.html</url>
+    <content type="text"><![CDATA[ctrl-z 挂起正在运行的进程 ctrl-d 发送EOF ctrl-c 结束进程 jobs 显示当前暂停的进程 bg 使进程后台运行 fg 使进程恢复前台运行 ssh-copy-id user@host]]></content>
+      <categories>
+        <category>基础</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis 基础]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Fredis%2FRedis%20%E5%9F%BA%E7%A1%80.html</url>
+    <content type="text"><![CDATA[redis-cli flushdb 清空数据库数据 flushall 清空全部数据库数据 select 切换数据库 0~15 string SET key value [] GET key DEL]]></content>
+      <categories>
+        <category>基础</category>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 669 修剪二叉搜索树]]></title>
-    <url>%2Fpost%2F39a05a73cee7274b5d07ab816d4af700%2F</url>
-    <content type="text"><![CDATA[题目描述 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。 拓展 二叉搜索树的性质： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 代码实现1234567891011121314151617181920212223242526272829303132/** * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @param Integer $L * @param Integer $R * @return TreeNode */ function trimBST($root, $L, $R) &#123; if($root-&gt;val === null)&#123; return null; &#125; if($root-&gt;val &gt; $R)&#123; return $this-&gt;trimBST($root-&gt;left,$L,$R); &#125; if($root-&gt;val &lt; $L)&#123; return $this-&gt;trimBST($root-&gt;right,$L,$R); &#125; $root-&gt;left = $this-&gt;trimBST($root-&gt;left,$L,$R); $root-&gt;right = $this-&gt;trimBST($root-&gt;right,$L,$R); return $root; &#125;&#125;]]></content>
+    <url>%2F%2Fpost%2Fnotes%2F%E7%AE%97%E6%B3%95%2FLeetCode%20%23669%20%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.html</url>
+    <content type="text"><![CDATA[题目描述 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。 拓展 二叉搜索树的性质： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 代码实现/** * Definition for a binary tree node. * class TreeNode { * public $val = null; * public $left = null; * public $right = null; * function __construct($value) { $this-&gt;val = $value; } * } */ class Solution { /** * @param TreeNode $root * @param Integer $L * @param Integer $R * @return TreeNode */ function trimBST($root, $L, $R) { if($root-&gt;val === null){ return null; } if($root-&gt;val &gt; $R){ return $this-&gt;trimBST($root-&gt;left,$L,$R); } if($root-&gt;val &lt; $L){ return $this-&gt;trimBST($root-&gt;right,$L,$R); } $root-&gt;left = $this-&gt;trimBST($root-&gt;left,$L,$R); $root-&gt;right = $this-&gt;trimBST($root-&gt;right,$L,$R); return $root; } }]]></content>
       <categories>
         <category>算法</category>
         <category>LeetCode</category>
@@ -14,8 +131,8 @@
   </entry>
   <entry>
     <title><![CDATA[LeetCode 965 单值二叉树]]></title>
-    <url>%2Fpost%2Fd0ad05be6d45fad86cbf2deb91d4493c%2F</url>
-    <content type="text"><![CDATA[题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现PHP12345678910111213141516171819202122232425262728293031323334&lt;?php/** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode &#123; * public $val = null; * public $left = null; * public $right = null; * function __construct($value) &#123; $this-&gt;val = $value; &#125; * &#125; */class Solution &#123; /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) &#123; if($root == null)&#123; return true; &#125; if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val))&#123; return false; &#125; if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false)&#123; return false; &#125; return true; &#125;&#125; Golang12345678910111213141516171819202122/** * Definition for a binary tree node. * type TreeNode struct &#123; * Val int * Left *TreeNode * Right *TreeNode * &#125; */func isUnivalTree(root *TreeNode) bool &#123; if(root == nil)&#123; return true &#125; if((root.Left != nil &amp;&amp; root.Val != root.Left.Val) || (root.Right != nil &amp;&amp; root.Val != root.Right.Val))&#123; return false &#125; if(isUnivalTree(root.Left) == false || false == isUnivalTree(root.Right))&#123; return false &#125; return true&#125;]]></content>
+    <url>%2F%2Fpost%2Fnotes%2F%E7%AE%97%E6%B3%95%2FLeetCode%20%23965%20%E5%8D%95%E5%80%BC%E4%BA%8C%E5%8F%89%E6%A0%91.html</url>
+    <content type="text"><![CDATA[题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现PHP&lt;?php /** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode { * public $val = null; * public $left = null; * public $right = null; * function __construct($value) { $this-&gt;val = $value; } * } */ class Solution { /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) { if($root == null){ return true; } if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val)){ return false; } if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false){ return false; } return true; } } Golang/** * Definition for a binary tree node. * type TreeNode struct { * Val int * Left *TreeNode * Right *TreeNode * } */ func isUnivalTree(root *TreeNode) bool { if(root == nil){ return true } if((root.Left != nil &amp;&amp; root.Val != root.Left.Val) || (root.Right != nil &amp;&amp; root.Val != root.Right.Val)){ return false } if(isUnivalTree(root.Left) == false || false == isUnivalTree(root.Right)){ return false } return true }]]></content>
       <categories>
         <category>算法</category>
         <category>LeetCode</category>
@@ -26,13 +143,13 @@
   </entry>
   <entry>
     <title><![CDATA[CentOs 中安装Chrome+ChromeDriver]]></title>
-    <url>%2Fpost%2Fc0247538c4f3e46df13bd7991ce16b18%2F</url>
-    <content type="text"><![CDATA[安装Chrome1.安装Chrome1curl https://intoli.com/install-google-chrome.sh | bash 2.测试浏览器1google-chrome-stable --no-sandbox --headless --disable-gpu --screenshot https://www.baidu.com/ 会保存一张图片在当前路径 安装ChromeDriver查看Chrome版本1google-chrome --version 查找对应的驱动的网址 http://chromedriver.storage.googleapis.com/index.html*下载安装包1wget http://chromedriver.storage.googleapis.com/78.0.3904.70/chromedriver_linux64.zip 解压12345# 没有 unzip 使用 yum 安装即可unzip chromedriver_linux64.zip# 解压完成后可将可执行文件移到bin目录方便后续使用mv chromedriver /usr/bin/]]></content>
+    <url>%2F%2Fpost%2Fnotes%2FCentOs%20%E4%B8%AD%E5%AE%89%E8%A3%85Chrome%2BChromeDriver.html</url>
+    <content type="text"><![CDATA[安装Chrome1.安装Chromecurl https://intoli.com/install-google-chrome.sh | bash2.测试浏览器google-chrome-stable --no-sandbox --headless --disable-gpu --screenshot https://www.baidu.com/ 会保存一张图片在当前路径 安装ChromeDriver查看Chrome版本google-chrome --version查找对应的驱动的网址 http://chromedriver.storage.googleapis.com/index.html*下载安装包wget http://chromedriver.storage.googleapis.com/78.0.3904.70/chromedriver_linux64.zip解压# 没有 unzip 使用 yum 安装即可 unzip chromedriver_linux64.zip 解压完成后可将可执行文件移到bin目录方便后续使用mv chromedriver /usr/bin/]]></content>
   </entry>
   <entry>
     <title><![CDATA[golang 交叉编译]]></title>
-    <url>%2Fpost%2Ff6eab270974ee0fbaf611254e9e11416%2F</url>
-    <content type="text"><![CDATA[Mac 下编译 Linux 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Linux 下编译 Mac 和 Windows 64位可执行程序 12CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.goCGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.go Windows 下编译 Mac 和 Linux 64位可执行程序 123456789SET CGO_ENABLED=0SET GOOS=darwinSET GOARCH=amd64go build main.goSET CGO_ENABLED=0SET GOOS=linuxSET GOARCH=amd64go build main.go GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）GOARCH：目标平台的体系架构（386、amd64、arm）交叉编译不支持 CGO 所以要禁用它 上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序]]></content>
+    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91.html</url>
+    <content type="text"><![CDATA[Mac 下编译 Linux 和 Windows 64位可执行程序 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.goLinux 下编译 Mac 和 Windows 64位可执行程序 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.goWindows 下编译 Mac 和 Linux 64位可执行程序 SET CGO_ENABLED=0 SET GOOS=darwin SET GOARCH=amd64 go build main.go SET CGO_ENABLED=0 SET GOOS=linux SET GOARCH=amd64 go build main.goGOOS：目标平台的操作系统（darwin、freebsd、linux、windows）GOARCH：目标平台的体系架构（386、amd64、arm）交叉编译不支持 CGO 所以要禁用它 上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序]]></content>
       <categories>
         <category>基础</category>
         <category>golang</category>
@@ -43,7 +160,7 @@
   </entry>
   <entry>
     <title><![CDATA[Linux screen]]></title>
-    <url>%2Fpost%2F180caaa829345bfd949e059951dab6a8%2F</url>
+    <url>%2F%2Fpost%2Fnotes%2Flinux%2FLinux%20screen.html</url>
     <content type="text"><![CDATA[screen⌘ Command（或 Cmd）⌘Shift ⇧Option（或 Alt）⌥Control（或 Ctrl）⌃Caps Lock ⇪Fn]]></content>
       <categories>
         <category>基础</category>
@@ -54,20 +171,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux ls]]></title>
-    <url>%2Fpost%2F5f8cb416ad6efe9e46d235a71f3caf21%2F</url>
-    <content type="text"><![CDATA[ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。 ls 命令选项 选项 长选项 描述 -a –all 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 -d –directory 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。 -F –classify 这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。 -h –human-readable 当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。 -l - 以长格式显示结果。 -r –reverse 以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。 -S - 命令输出结果按照文件大小来排序。 -t - 按照修改时间来排序。 ls -l1234567891011121314151617[root@iZ28jjwy44gZ ~]# ls -l总用量 8976drwxr-xr-x 6 root root 4096 6月 19 07:16 blogdrwxr-xr-x 2 root root 4096 1月 26 2019 certbotdrwxr-xr-x 6 root root 4096 5月 31 12:07 composedrwxr-xr-x 3 root root 4096 1月 30 2019 goproductdrwxr-xr-x 4 root root 4096 1月 26 2019 logsdrwxr-xr-x 5 root root 4096 2月 13 2019 nginxdrwxr-xr-x 9 1001 1001 4096 1月 30 2019 nginx-1.15.8-rw-r--r-- 1 root root 1027862 12月 25 2018 nginx-1.15.8.tar.gzdrwxr-xr-x 18 root root 4096 1月 30 2019 openssl-1.1.0j-rw-r--r-- 1 root root 5411919 11月 20 2018 openssl-1.1.0j.tar.gzdrwxr-xr-x 9 1169 1169 12288 1月 30 2019 pcre-8.42-rw-r--r-- 1 root root 2081413 4月 2 2018 pcre-8.42.tar.gzdrwxr-xr-x 2 root root 4096 6月 24 14:32 phpdrwxr-xr-x 14 501 games 4096 1月 30 2019 zlib-1.2.11-rw-r--r-- 1 root root 607698 1月 16 2017 zlib-1.2.11.tar.gz drwxr-xr-x 6 root root 4096 6月 19 07:16 blog 对于文件的访问权限 文件的硬链接数目 文件所有者的用户名 文件所属用户组的名字 以字节数表示的文件大小 上次修改文件的时间和日期 文件名]]></content>
-      <categories>
-        <category>基础</category>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[go mod]]></title>
-    <url>%2Fpost%2Fc91ca214e12a0715ec3ef2e5138df095%2F</url>
+    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgo%20mod.html</url>
     <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
       <categories>
         <category>基础</category>
@@ -78,8 +183,20 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Linux ls]]></title>
+    <url>%2F%2Fpost%2Fnotes%2Flinux%2FLinux%20ls.html</url>
+    <content type="text"><![CDATA[ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。 ls 命令选项 选项 长选项 描述 -a –all 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 -d –directory 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。 -F –classify 这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。 -h –human-readable 当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。 -l - 以长格式显示结果。 -r –reverse 以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。 -S - 命令输出结果按照文件大小来排序。 -t - 按照修改时间来排序。 ls -l[root@iZ28jjwy44gZ ~]# ls -l 总用量 8976 drwxr-xr-x 6 root root 4096 6月 19 07:16 blog drwxr-xr-x 2 root root 4096 1月 26 2019 certbot drwxr-xr-x 6 root root 4096 5月 31 12:07 compose drwxr-xr-x 3 root root 4096 1月 30 2019 goproduct drwxr-xr-x 4 root root 4096 1月 26 2019 logs drwxr-xr-x 5 root root 4096 2月 13 2019 nginx drwxr-xr-x 9 1001 1001 4096 1月 30 2019 nginx-1.15.8 -rw-r--r-- 1 root root 1027862 12月 25 2018 nginx-1.15.8.tar.gz drwxr-xr-x 18 root root 4096 1月 30 2019 openssl-1.1.0j -rw-r--r-- 1 root root 5411919 11月 20 2018 openssl-1.1.0j.tar.gz drwxr-xr-x 9 1169 1169 12288 1月 30 2019 pcre-8.42 -rw-r--r-- 1 root root 2081413 4月 2 2018 pcre-8.42.tar.gz drwxr-xr-x 2 root root 4096 6月 24 14:32 php drwxr-xr-x 14 501 games 4096 1月 30 2019 zlib-1.2.11 -rw-r--r-- 1 root root 607698 1月 16 2017 zlib-1.2.11.tar.gz drwxr-xr-x 6 root root 4096 6月 19 07:16 blog 对于文件的访问权限 文件的硬链接数目 文件所有者的用户名 文件所属用户组的名字 以字节数表示的文件大小 上次修改文件的时间和日期 文件名]]></content>
+      <categories>
+        <category>基础</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[高数一-函数]]></title>
-    <url>%2Fpost%2Fd71b019935732176395383a7ddfe8294%2F</url>
+    <url>%2F%2Fpost%2Fnotes%2F%E9%AB%98%E6%95%B0%E4%B8%80-%E5%87%BD%E6%95%B0.html</url>
     <content type="text"><![CDATA[函数集合定义 具有某种确定性质的对象的全体集合成为一个 集合 组成集合的个别对象成为该集合的 元素 表示 一般用大写 ABC 等表示集合 用小写 abc 等表示集合的元素 不含任何元素的集合叫做空集 用 ∅ 表示 a ∈ A 表示 a 是 A 中的元素 a ∉ A 表示 a 不是 A 中的元素 A = { x | x 具有性质 P(x)} 例：A = { x | x &gt; 0, x ∈ R} 特殊数集 N 自然数集 自然数由0开始，一个接一个，即用数码0，1，2，3，4……所表示的数。 Z 整数集 由全体整数组成的集合叫整数集。它包括全体正整数、全体负整数和零 Q 有理数集 有理数集，即由所有有理数所构成的集合。 有理数集是实数集的子集，即 Q ∈ R 有理数集是一个无穷集，不存在最大值或最小值。 R 实数集 实数集通俗地认为，通常包含所有有理数和无理数的集合就是实数集，通常用大写字母R表示 集合运算 设 A，B 为两个集合 若 ∀x(任意X) ∈ A,必有 x ∈ B。则 A ⊆ B ( A 包含于 B) 若 A ⊆ B， 且 B ⊆ A。则 A = B 并集：A ∪ B = { x | x ∈ A 或 x ∈ B } 交集：A ∩ B = { x | x ∈ A 且 x ∈ B } 子集：子集是一个数学概念：如果集合 A 的任意一个元素都是集合 B 的元素，那么集合 A 称为集合 B 的子集。 符号语言：若 ∀a ∈ A，均有 a ∈ B，则 A ⊆ B 差集：A \ B = { x | x ∈ A 且 x ∉ B} 余集：若 X 为全集或基本集， A 的余集(符号不知道怎么打) = X \ A = { x | x ∈ X 但 x ∉ A} 集合的运算法则 设 A，B，C 为三个集合，则有 交换律:A ∪ B = B ∪ A, A ∩ B = B ∩ A 结合律:(A ∪ B) ∪ C = A ∪ (B ∪ C) (A ∩ B) ∩ C = A ∩ (B ∩ C) 分配率(A ∪ B) ∩ C = (A ∩ C) ∪ (B ∩ C) (A ∩ B) ∪ C = (A ∪ C) ∩ (B ∪ C)]]></content>
       <tags>
         <tag>math</tag>
@@ -87,7 +204,7 @@
   </entry>
   <entry>
     <title><![CDATA[无头浏览器-Chrome]]></title>
-    <url>%2Fpost%2F252506abb9ed56ebd68358ab46f79c54%2F</url>
+    <url>%2F%2Fpost%2Fnotes%2F%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8-Chrome.html</url>
     <content type="text"><![CDATA[简介很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是PhantomJS，但是在网上查阅了一些资料后得知PhantomJS停止维护了，而且新版的selenium好像不支持PhantomJS了，需要使用 Chrome 或者 Firefox。 因为我平时用的浏览器就是 Chrome，最后决定用 Chrome 的无头模式来做。 准备 需要通过pip安装 selenium 模块 提前安装好 Chrome 最后还需要下载一个Chrome的驱动才能使用，下载的时候需要根据本地 Chrome 的版本，下载对应的驱动。 下载完 Chromedriver 后我是把 Chromedriver 这个驱动放到了环境变量里。这样方便写代码调用。 ##]]></content>
   </entry>
 </search>
