@@ -1,103 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[树莓派默认登陆密码]]></title>
-    <url>%2F%2Fpost%2Fnotes%2FraspberryPi%2F%E6%A0%91%E8%8E%93%E6%B4%BE%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81.html</url>
-    <content type="text"><![CDATA[树莓派默认密码 默认用户是 pi 密码为 raspberry]]></content>
-      <categories>
-        <category>树莓派</category>
-      </categories>
-      <tags>
-        <tag>树莓派</tag>
-      </tags>
+    <title>acme.sh 安装ssl证书</title>
+    <url>/post/f866703e1ec6ef63df4cfba7a7e1e1b6</url>
+    <content><![CDATA[<ul>
+<li><p>查看已申请列表</p>
+<pre class="line-numbers language-none"><code class="language-none">acme.sh --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>申请证书</p>
+<pre class="line-numbers language-none"><code class="language-none">acme.sh --issue -d www.your-app.com -w &#x2F;home&#x2F;ubuntu&#x2F;www&#x2F;your-app&#x2F;current&#x2F;public<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>移动证书</p>
+<pre class="line-numbers language-none"><code class="language-none">acme.sh --installcert -d www.your-app.com \
+               --keypath       &#x2F;home&#x2F;ubuntu&#x2F;www&#x2F;ssl&#x2F;www.your-app.com.key  \
+               --fullchainpath &#x2F;home&#x2F;ubuntu&#x2F;www&#x2F;ssl&#x2F;www.your-app.com.key.pem \
+               --reloadcmd     &quot;sudo service nginx force-reload&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="nginx-单独设置项目目录"><a href="#nginx-单独设置项目目录" class="headerlink" title="nginx 单独设置项目目录"></a>nginx 单独设置项目目录</h5></li>
+<li><p>适合反向代理的项目 或者 不想侵入项目目录的情况</p>
+<pre class="line-numbers language-none"><code class="language-none">location &#x2F;.well-known&#x2F;  &#123;
+       root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;portainer
+       index index.html;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+]]></content>
   </entry>
   <entry>
-    <title><![CDATA[linux 慢网速]]></title>
-    <url>%2F%2Fpost%2Fnotes%2FLinux%20%E6%85%A2%E7%BD%91%E9%80%9F.html</url>
-    <content type="text"><![CDATA[sudo tc qdisc add dev ens33 root netem delay 500ms #设置500ms的延迟 sudo tc qdisc add dev ens33 root netem loss 50% #设置50%的丢包率 sudo tc qdisc add dev ens33 root netem delay 300ms loss 50% sudo tc qdisc del dev ens33 root]]></content>
+    <title>CentOs 中安装Chrome+ChromeDriver</title>
+    <url>/post/c0247538c4f3e46df13bd7991ce16b18</url>
+    <content><![CDATA[<h2 id="安装Chrome"><a href="#安装Chrome" class="headerlink" title="安装Chrome"></a>安装Chrome</h2><h3 id="1-安装Chrome"><a href="#1-安装Chrome" class="headerlink" title="1.安装Chrome"></a>1.安装Chrome</h3><pre><code>curl https://intoli.com/install-google-chrome.sh | bash</code></pre><h3 id="2-测试浏览器"><a href="#2-测试浏览器" class="headerlink" title="2.测试浏览器"></a>2.测试浏览器</h3><pre><code>google-chrome-stable --no-sandbox --headless --disable-gpu --screenshot https://www.baidu.com/</code></pre><blockquote>
+<p>会保存一张图片在当前路径</p>
+</blockquote>
+<h2 id="安装ChromeDriver"><a href="#安装ChromeDriver" class="headerlink" title="安装ChromeDriver"></a>安装ChromeDriver</h2><h3 id="查看Chrome版本"><a href="#查看Chrome版本" class="headerlink" title="查看Chrome版本"></a>查看Chrome版本</h3><pre><code>google-chrome --version</code></pre><h3 id="查找对应的驱动的网址"><a href="#查找对应的驱动的网址" class="headerlink" title="查找对应的驱动的网址"></a>查找对应的驱动的网址</h3><ul>
+<li><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">http://chromedriver.storage.googleapis.com/index.html</a>*<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><pre><code>wget http://chromedriver.storage.googleapis.com/78.0.3904.70/chromedriver_linux64.zip</code></pre><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><pre><code># 没有 unzip 使用 yum 安装即可
+unzip chromedriver_linux64.zip
+</code></pre></li>
+</ul>
+<h1 id="解压完成后可将可执行文件移到bin目录方便后续使用"><a href="#解压完成后可将可执行文件移到bin目录方便后续使用" class="headerlink" title="解压完成后可将可执行文件移到bin目录方便后续使用"></a>解压完成后可将可执行文件移到bin目录方便后续使用</h1><p>mv chromedriver /usr/bin/</p>
+<pre><code></code></pre>]]></content>
   </entry>
   <entry>
-    <title><![CDATA[dtls config]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fdtls%20config.html</url>
-    <content type="text"><![CDATA[// Config is used to configure a DTLS client or server. // After a Config is passed to a DTLS function it must not be modified. type Config struct { // Certificates contains certificate chain to present to the other side of the connection. // Server MUST set this if PSK is non-nil // client SHOULD sets this so CertificateRequests can be handled if PSK is non-nil // 证书 Certificates []tls.Certificate // CipherSuites is a list of supported cipher suites. // If CipherSuites is nil, a default list is used // 加密算法 加密字典 CipherSuites []CipherSuiteID // CustomCipherSuites is a list of CipherSuites that can be // provided by the user. This allow users to user Ciphers that are reserved // for private usage. // CustomCipherSuites func() []CipherSuite // SignatureSchemes contains the signature and hash schemes that the peer requests to verify. SignatureSchemes []tls.SignatureScheme // SRTPProtectionProfiles are the supported protection profiles // Clients will send this via use_srtp and assert that the server properly responds // Servers will assert that clients send one of these profiles and will respond as needed SRTPProtectionProfiles []SRTPProtectionProfile // ClientAuth determines the server&#39;s policy for // TLS Client Authentication. The default is NoClientCert. ClientAuth ClientAuthType // RequireExtendedMasterSecret determines if the &quot;Extended Master Secret&quot; extension // should be disabled, requested, or required (default requested). // 加密扩展类型 ExtendedMasterSecret ExtendedMasterSecretType // FlightInterval controls how often we send outbound handshake messages // defaults to time.Second FlightInterval time.Duration // PSK sets the pre-shared key used by this DTLS connection // If PSK is non-nil only PSK CipherSuites will be used PSK PSKCallback PSKIdentityHint []byte // InsecureSkipVerify controls whether a client verifies the // server&#39;s certificate chain and host name. // If InsecureSkipVerify is true, TLS accepts any certificate // presented by the server and any host name in that certificate. // In this mode, TLS is susceptible to man-in-the-middle attacks. // This should be used only for testing. InsecureSkipVerify bool // InsecureHashes allows the use of hashing algorithms that are known // to be vulnerable. InsecureHashes bool // VerifyPeerCertificate, if not nil, is called after normal // certificate verification by either a client or server. It // receives the certificate provided by the peer and also a flag // that tells if normal verification has succeedded. If it returns a // non-nil error, the handshake is aborted and that error results. // // If normal verification fails then the handshake will abort before // considering this callback. If normal verification is disabled by // setting InsecureSkipVerify, or (for a server) when ClientAuth is // RequestClientCert or RequireAnyClientCert, then this callback will // be considered but the verifiedChains will always be nil. VerifyPeerCertificate func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error // RootCAs defines the set of root certificate authorities // that one peer uses when verifying the other peer&#39;s certificates. // If RootCAs is nil, TLS uses the host&#39;s root CA set. // ca根证书 RootCAs *x509.CertPool // ClientCAs defines the set of root certificate authorities // that servers use if required to verify a client certificate // by the policy in ClientAuth. ClientCAs *x509.CertPool // ServerName is used to verify the hostname on the returned // certificates unless InsecureSkipVerify is given. ServerName string LoggerFactory logging.LoggerFactory // ConnectContextMaker is a function to make a context used in Dial(), // Client(), Server(), and Accept(). If nil, the default ConnectContextMaker // is used. It can be implemented as following. // // func ConnectContextMaker() (context.Context, func()) { // return context.WithTimeout(context.Background(), 30*time.Second) // } ConnectContextMaker func() (context.Context, func()) // MTU is the length at which handshake messages will be fragmented to // fit within the maximum transmission unit (default is 1200 bytes) MTU int // ReplayProtectionWindow is the size of the replay attack protection window. // Duplication of the sequence number is checked in this window size. // Packet with sequence number older than this value compared to the latest // accepted packet will be discarded. (default is 64) ReplayProtectionWindow int // KeyLogWriter optionally specifies a destination for TLS master secrets // in NSS key log format that can be used to allow external programs // such as Wireshark to decrypt TLS connections. // See https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format. // Use of KeyLogWriter compromises security and should only be // used for debugging. KeyLogWriter io.Writer }]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[golang grpc]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20grpc.html</url>
-    <content type="text"><![CDATA[安装1.从github上下载protobuf3 protobuf3下载地址 有很多语言版本的，mac下选择第一个。 2.下载下来后解压压缩包，并进入目录 cd protobuf-3.7.0/3.设置编译目录 ./configure --prefix=/usr/local/protobuf4.切换到root用户 sudo -i5.安装 make make install6.配置环境变量 找到用户目录/Users/pauljiang 的 .bash_profile文件并编辑 vim .bash_profile按一下回车键 按i进入编辑模式 添加 export PROTOBUF=/usr/local/protobuf export PATH=$PROTOBUF/bin:$PATHsource一下使文件生效 source .bash_profile7.测试安装结果 protoc --version 生成中间文件protoc --go_out=../services Prod.protoprotoc --go_out=plugins=grpc:../service Prod.protoopenssl 生成证书#生成 openssl genrsa -aes128 -out fd.key 2048 openssl req -new -key fd.key -out fd.csr #删除密码 openssl rsa -in fd.key -out fd-public.key openssl x509 -req -days 365 -in fd.csr -signkey fd.key -out fd.crt]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[golang json]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20json.html</url>
-    <content type="text"><![CDATA[jsonstruct &gt; json json.Marshal() json &gt; interface{} json.Unmarshal() tag type Persion struct{ Name string `json:&quot;-&quot;` //忽略 Name string `json:&quot;name&quot;`// 转成json的字段值 Name string `json:&quot;name,omitempty&quot;` // omitempty 空值/零值时会省略不转换 Name string `json:&quot;,omitempty&quot;` //使用字段名作为json名，并且会跳过零值 }]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[golang 三色标记法]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20%E4%B8%89%E8%89%B2%E6%A0%87%E8%AE%B0%E6%B3%95.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[golang MPG]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20MPG.html</url>
-    <content type="text"><![CDATA[MPG M 指 Machine,一个 M 关联一个内核线程 由操作系统管理。 数量问题：Go语言本身限定 M 的上限是1000，或在 runtime/debug 包中的 SetMaxThreads() 设置。 M 动态创建，有一个 M 阻塞（goroutine）,会创建新的 M。如果有M空闲，会回收或眨眼 P 指 处理器(Processor), 代表了 M 所需的上下文环境，也是处理用户级代码逻辑的处理器。负责衔接 M 和 G 的上下文调度，将等待执行的 G 与 M 对接。 数量问题: 环境变量 $GOMAXPROCS，或在程序中通过 runtime.GOMAXPROCS(runtime.NumCPU())设置。 G 指 Goroutine，本质是一种轻量级的线程。包括了调用栈，重要的调度信息，如 channel 等。 创建 goroutine 栈内存消耗 2kb，运行过程中内存不够会自动扩容 所有协程都是同级的，不分父子关系。]]></content>
-      <categories>
-        <category>golang</category>
-      </categories>
-      <tags>
-        <tag>golang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue 指令]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fvue%2Fvue%20%E6%8C%87%E4%BB%A4.html</url>
-    <content type="text"><![CDATA[v-for : 循环渲染 v-if : v-html : v-on : 注册事件 简写: @ 支持指令修饰符 @click.prevent 禁止默认事件 @click.stop 禁止冒泡 v-bind : 绑定动态属性 简写: : v-show : v-model : 双向绑定 v-slot : v-text : v-pre : v-cloak : v-once : v-key : -]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue 属性]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fvue%2Fvue%20%E5%B1%9E%E6%80%A7.html</url>
-    <content type="text"></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[acme.sh 安装ssl证书]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Facme.sh%20%E5%AE%89%E8%A3%85ssl%E8%AF%81%E4%B9%A6.html</url>
-    <content type="text"><![CDATA[查看已申请列表 acme.sh --list 申请证书 acme.sh --issue -d www.your-app.com -w /home/ubuntu/www/your-app/current/public 移动证书 acme.sh --installcert -d www.your-app.com \ --keypath /home/ubuntu/www/ssl/www.your-app.com.key \ --fullchainpath /home/ubuntu/www/ssl/www.your-app.com.key.pem \ --reloadcmd &quot;sudo service nginx force-reload&quot;nginx 单独设置项目目录 适合反向代理的项目 或者 不想侵入项目目录的情况 location /.well-known/ { root /usr/share/nginx/portainer index index.html; }]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[docker php 安装扩展]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fdocker%20php%20%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95.html</url>
-    <content type="text"><![CDATA[进入容器 docker exec -it php /bin/bash 至目录下 cd /usr/local/bin 安装扩展 ./docker-php-ext-install pdo_mysql 安装扩展 ./docker-php-ext-install mysql 重启容器 docker php restart]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[nginx 部分配置]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fnginx%20%E9%83%A8%E5%88%86%E9%85%8D%E7%BD%AE.html</url>
-    <content type="text"><![CDATA[转至https server { listen 80; server_name host; rewrite ^(.*)$ https://${server_name}$1 permanent; } php5.6 location ~ \.php$ { # 设置监听端口 fastcgi_pass 127.0.0.1:9056; # 设置nginx的默认首页文件(上面已经设置过了，可以删除) fastcgi_index index.php; # 设置脚本文件请求的路径 fastcgi_param SCRIPT_FILENAME /www/dir/$fastcgi_script_name; #fastcgi_param SCRIPT_NAME $fastcgi_script_name; # 引入fastcgi的配置文件 include fastcgi_params; }]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[通过docker安装多版本PHP]]></title>
-    <url>%2F%2Fpost%2Fnotes%2F%E9%80%9A%E8%BF%87docker%E5%AE%89%E8%A3%85%E5%A4%9A%E7%89%88%E6%9C%ACPHP.html</url>
-    <content type="text"><![CDATA[phpdocker run -p 9072:9000 --name php72-fpm -v /usr/share/nginx/html:/www -v $PWD/conf/php72:/usr/local/etc/php -v /var/log/php72:/phplogs -d php:7.2-fpm docker run -p 9056:9000 –name php56-fpm -v /usr/share/nginx/html:/www -d php:5.6-fpm - nginxserver { listen 80; server_name php72.codepher.com; # 默认网站根目录（www目录） root /usr/share/nginx/html; # Load configuration files for the default server block. #include /etc/nginx/default.d/*.conf; location / { # 这里改动了 定义首页索引文件的名称 index index.php index.html index.htm; } error_page 404 /404.html; location = /40x.html { } error_page 500 502 503 504 /50x.html; location = /50x.html { } # 这里新加的 # PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI协议默认配置. # Fastcgi服务器和程序(PHP,Python)沟通的协议. location ~ \.php$ { # 设置监听端口 fastcgi_pass 127.0.0.1:9072; # 设置nginx的默认首页文件(上面已经设置过了，可以删除) fastcgi_index index.php; # 设置脚本文件请求的路径 fastcgi_param SCRIPT_FILENAME /www/$fastcgi_script_name; # 引入fastcgi的配置文件 include fastcgi_params; } } - portainerupstream portainer { server 127.0.0.1:9000;} server{ listen 80; server_name portainer.backend.codepher.com; # access_log logs/portainer.backend.codepher.com.access.log main; # error_log logs/portainer.backend.codepher.com.error.log; # root html; index index.html; location /.well-known/ { root /usr/share/nginx/portainer index index.html; } #Proxy Settings proxy_redirect off; proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504; proxy_max_temp_file_size 0; proxy_connect_timeout 90; proxy_send_timeout 90; proxy_read_timeout 90; proxy_buffer_size 4k; proxy_buffers 4 32k; proxy_busy_buffers_size 64k; proxy_temp_file_write_size 64k; ## send request ## location / { proxy_pass http://portainer; } - mysqlsudo docker run -p 3306:3306 –name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6```]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F%2Fpost%2Fnotes%2Fdocker.html</url>
-    <content type="text"><![CDATA[Forbidden path outside the build context: ../dist/ () 禁止]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Mac 终端命令整理]]></title>
-    <url>%2F%2Fpost%2Fnotes%2FMac%20%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86.html</url>
-    <content type="text"><![CDATA[ctrl-z 挂起正在运行的进程 ctrl-d 发送EOF ctrl-c 结束进程 jobs 显示当前暂停的进程 bg 使进程后台运行 fg 使进程恢复前台运行 ssh-copy-id user@host]]></content>
+    <title>Mac 终端命令整理</title>
+    <url>/post/83bfcdf9374f0740c3807d7536eabb7f</url>
+    <content><![CDATA[<ul>
+<li><p>ctrl-z 挂起正在运行的进程</p>
+</li>
+<li><p>ctrl-d 发送EOF</p>
+</li>
+<li><p>ctrl-c 结束进程</p>
+</li>
+<li><p>jobs 显示当前暂停的进程</p>
+</li>
+<li><p>bg 使进程后台运行</p>
+</li>
+<li><p>fg 使进程恢复前台运行</p>
+<p>ssh-copy-id user@host</p>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>基础</category>
       </categories>
@@ -106,9 +65,399 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Redis 基础]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fredis%2FRedis%20%E5%9F%BA%E7%A1%80.html</url>
-    <content type="text"><![CDATA[redis-cli flushdb 清空数据库数据 flushall 清空全部数据库数据 select 切换数据库 0~15 string SET key value [] GET key DEL]]></content>
+    <title>linux 慢网速</title>
+    <url>/post/a77410640e8f64ad50a63fd1a1f3aa52</url>
+    <content><![CDATA[<pre><code class="bash">sudo tc qdisc add dev ens33 root netem delay 500ms       #设置500ms的延迟
+sudo tc qdisc add dev ens33 root netem loss 50%          #设置50%的丢包率
+sudo tc qdisc add dev ens33 root netem delay 300ms  loss 50% 
+sudo tc qdisc del dev ens33 root</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/post/undefined</url>
+    <content><![CDATA[<ul>
+<li>Forbidden path outside the build context: ../dist/ ()</li>
+<li>禁止</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>docker php 安装扩展</title>
+    <url>/post/32a4de4fe202b4f03f76d31191098917</url>
+    <content><![CDATA[<pre><code>进入容器 docker exec -it php /bin/bash
+
+至目录下 cd /usr/local/bin  
+
+安装扩展 ./docker-php-ext-install pdo_mysql  
+
+安装扩展 ./docker-php-ext-install mysql
+
+重启容器 docker php restart
+</code></pre>]]></content>
+  </entry>
+  <entry>
+    <title>dtls config</title>
+    <url>/post/aa31c21ec18e3a21e4e503bae6736561</url>
+    <content><![CDATA[<pre><code class="golang">// Config is used to configure a DTLS client or server.
+// After a Config is passed to a DTLS function it must not be modified.
+type Config struct {
+    // Certificates contains certificate chain to present to the other side of the connection.
+    // Server MUST set this if PSK is non-nil
+    // client SHOULD sets this so CertificateRequests can be handled if PSK is non-nil
+    // 证书
+    Certificates []tls.Certificate
+
+    // CipherSuites is a list of supported cipher suites.
+    // If CipherSuites is nil, a default list is used
+    // 加密算法 加密字典
+    CipherSuites []CipherSuiteID
+
+    // CustomCipherSuites is a list of CipherSuites that can be
+    // provided by the user. This allow users to user Ciphers that are reserved
+    // for private usage.
+    // 
+    CustomCipherSuites func() []CipherSuite
+
+    // SignatureSchemes contains the signature and hash schemes that the peer requests to verify.
+    SignatureSchemes []tls.SignatureScheme
+
+    // SRTPProtectionProfiles are the supported protection profiles
+    // Clients will send this via use_srtp and assert that the server properly responds
+    // Servers will assert that clients send one of these profiles and will respond as needed
+    SRTPProtectionProfiles []SRTPProtectionProfile
+
+    // ClientAuth determines the server&#39;s policy for
+    // TLS Client Authentication. The default is NoClientCert.
+    ClientAuth ClientAuthType
+
+    // RequireExtendedMasterSecret determines if the &quot;Extended Master Secret&quot; extension
+    // should be disabled, requested, or required (default requested).
+    // 加密扩展类型 
+    ExtendedMasterSecret ExtendedMasterSecretType
+
+    // FlightInterval controls how often we send outbound handshake messages
+    // defaults to time.Second
+    FlightInterval time.Duration
+
+    // PSK sets the pre-shared key used by this DTLS connection
+    // If PSK is non-nil only PSK CipherSuites will be used
+    PSK             PSKCallback
+    PSKIdentityHint []byte
+
+    // InsecureSkipVerify controls whether a client verifies the
+    // server&#39;s certificate chain and host name.
+    // If InsecureSkipVerify is true, TLS accepts any certificate
+    // presented by the server and any host name in that certificate.
+    // In this mode, TLS is susceptible to man-in-the-middle attacks.
+    // This should be used only for testing.
+    InsecureSkipVerify bool
+
+    // InsecureHashes allows the use of hashing algorithms that are known
+    // to be vulnerable.
+    InsecureHashes bool
+
+    // VerifyPeerCertificate, if not nil, is called after normal
+    // certificate verification by either a client or server. It
+    // receives the certificate provided by the peer and also a flag
+    // that tells if normal verification has succeedded. If it returns a
+    // non-nil error, the handshake is aborted and that error results.
+    //
+    // If normal verification fails then the handshake will abort before
+    // considering this callback. If normal verification is disabled by
+    // setting InsecureSkipVerify, or (for a server) when ClientAuth is
+    // RequestClientCert or RequireAnyClientCert, then this callback will
+    // be considered but the verifiedChains will always be nil.
+    VerifyPeerCertificate func(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error
+
+    // RootCAs defines the set of root certificate authorities
+    // that one peer uses when verifying the other peer&#39;s certificates.
+    // If RootCAs is nil, TLS uses the host&#39;s root CA set.
+    // ca根证书
+    RootCAs *x509.CertPool
+
+    // ClientCAs defines the set of root certificate authorities
+    // that servers use if required to verify a client certificate
+    // by the policy in ClientAuth.
+    ClientCAs *x509.CertPool
+
+    // ServerName is used to verify the hostname on the returned
+    // certificates unless InsecureSkipVerify is given.
+    ServerName string
+
+    LoggerFactory logging.LoggerFactory
+
+    // ConnectContextMaker is a function to make a context used in Dial(),
+    // Client(), Server(), and Accept(). If nil, the default ConnectContextMaker
+    // is used. It can be implemented as following.
+    //
+    //     func ConnectContextMaker() (context.Context, func()) {
+    //         return context.WithTimeout(context.Background(), 30*time.Second)
+    //     }
+    ConnectContextMaker func() (context.Context, func())
+
+    // MTU is the length at which handshake messages will be fragmented to
+    // fit within the maximum transmission unit (default is 1200 bytes)
+    MTU int
+
+    // ReplayProtectionWindow is the size of the replay attack protection window.
+    // Duplication of the sequence number is checked in this window size.
+    // Packet with sequence number older than this value compared to the latest
+    // accepted packet will be discarded. (default is 64)
+    ReplayProtectionWindow int
+
+    // KeyLogWriter optionally specifies a destination for TLS master secrets
+    // in NSS key log format that can be used to allow external programs
+    // such as Wireshark to decrypt TLS connections.
+    // See https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format.
+    // Use of KeyLogWriter compromises security and should only be
+    // used for debugging.
+    KeyLogWriter io.Writer
+}
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>nginx 部分配置</title>
+    <url>/post/f77986d6aed0c79c83665995d4c03b60</url>
+    <content><![CDATA[<ul>
+<li><p>转至https</p>
+<pre><code>server {
+  listen  80;
+  server_name host;
+  rewrite ^(.*)$ https://${server_name}$1 permanent;
+}</code></pre></li>
+<li><p>php5.6</p>
+<pre><code>location ~ \.php$ {
+          # 设置监听端口
+          fastcgi_pass   127.0.0.1:9056;
+          # 设置nginx的默认首页文件(上面已经设置过了，可以删除)
+          fastcgi_index  index.php;
+          # 设置脚本文件请求的路径
+          fastcgi_param  SCRIPT_FILENAME  /www/dir/$fastcgi_script_name;
+          #fastcgi_param  SCRIPT_NAME     $fastcgi_script_name;
+          # 引入fastcgi的配置文件
+          include        fastcgi_params;
+      }</code></pre></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>无头浏览器-Chrome</title>
+    <url>/post/252506abb9ed56ebd68358ab46f79c54</url>
+    <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是<strong>PhantomJS</strong>，但是在网上查阅了一些资料后得知<strong>PhantomJS</strong>停止维护了，而且新版的<strong>selenium</strong>好像不支持<strong>PhantomJS</strong>了，需要使用 <strong>Chrome</strong> 或者 <strong>Firefox</strong>。
+因为我平时用的浏览器就是 <strong>Chrome</strong>，最后决定用 <strong>Chrome</strong> 的无头模式来做。</p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>需要通过pip安装 <strong>selenium</strong> 模块 </li>
+<li>提前安装好 <strong>Chrome</strong> </li>
+<li>最后还需要下载一个<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">Chrome的驱动</a>才能使用，下载的时候需要根据本地 <strong>Chrome</strong> 的版本，下载对应的驱动。</li>
+<li>下载完 <strong>Chromedriver</strong> 后我是把 <strong>Chromedriver</strong> 这个驱动放到了环境变量里。这样方便写代码调用。</li>
+</ul>
+<hr>
+<p>## </p>
+]]></content>
+  </entry>
+  <entry>
+    <title>通过docker安装多版本PHP</title>
+    <url>/post/123fb160318a3b031ff15e2ff7ef9fb0</url>
+    <content><![CDATA[<ul>
+<li><p>php</p>
+<pre class="line-numbers language-none"><code class="language-none">docker run -p 9072:9000 --name  php72-fpm -v &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html:&#x2F;www -v $PWD&#x2F;conf&#x2F;php72:&#x2F;usr&#x2F;local&#x2F;etc&#x2F;php -v &#x2F;var&#x2F;log&#x2F;php72:&#x2F;phplogs   -d php:7.2-fpm
+
+docker run -p 9056:9000 --name  php56-fpm -v &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html:&#x2F;www -d php:5.6-fpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>nginx</p>
+<pre class="line-numbers language-none"><code class="language-none">server &#123;
+        listen       80;
+        server_name  php72.codepher.com;
+
+        # 默认网站根目录（www目录）
+        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;
+
+        # Load configuration files for the default server block.
+        #include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;
+
+        location &#x2F; &#123;
+            # 这里改动了 定义首页索引文件的名称
+            index index.php index.html index.htm;
+        &#125;
+
+        error_page 404 &#x2F;404.html;
+            location &#x3D; &#x2F;40x.html &#123;
+        &#125;
+
+        error_page 500 502 503 504 &#x2F;50x.html;
+            location &#x3D; &#x2F;50x.html &#123;
+        &#125;
+
+        # 这里新加的
+        # PHP 脚本请求全部转发到 FastCGI处理. 使用FastCGI协议默认配置.
+        # Fastcgi服务器和程序(PHP,Python)沟通的协议.
+        location ~ \.php$ &#123;
+            # 设置监听端口
+            fastcgi_pass   127.0.0.1:9072;
+            # 设置nginx的默认首页文件(上面已经设置过了，可以删除)
+            fastcgi_index  index.php;
+            # 设置脚本文件请求的路径
+            fastcgi_param  SCRIPT_FILENAME &#x2F;www&#x2F;$fastcgi_script_name;
+            # 引入fastcgi的配置文件
+            include        fastcgi_params;
+        &#125;
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>portainer</p>
+<pre class="line-numbers language-none"><code class="language-none">upstream portainer &#123;
+      server 127.0.0.1:9000;
+&#125;
+
+server&#123;
+    listen 80;
+    server_name  portainer.backend.codepher.com;
+
+    # access_log  logs&#x2F;portainer.backend.codepher.com.access.log  main;
+    # error_log  logs&#x2F;portainer.backend.codepher.com.error.log;
+    # root   html;
+    index  index.html;
+
+    location &#x2F;.well-known&#x2F;  &#123;
+        root &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;portainer
+        index index.html;
+    &#125;
+    
+    #Proxy Settings
+    proxy_redirect     off;
+    proxy_set_header   Host             $host;
+    proxy_set_header   X-Real-IP        $remote_addr;
+    proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+    proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+    proxy_max_temp_file_size 0;
+    proxy_connect_timeout      90;
+    proxy_send_timeout         90;
+    proxy_read_timeout         90;
+    proxy_buffer_size          4k;
+    proxy_buffers              4 32k;
+    proxy_busy_buffers_size    64k;
+    proxy_temp_file_write_size 64k;
+
+    ## send request ##
+    location &#x2F; &#123;
+        proxy_pass  http:&#x2F;&#x2F;portainer;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>mysql</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 -d mysql:5.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>高数一-函数</title>
+    <url>/post/d71b019935732176395383a7ddfe8294</url>
+    <content><![CDATA[<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><blockquote>
+<p>具有某种确定性质的对象的全体集合成为一个 <strong>集合</strong></p>
+</blockquote>
+<blockquote>
+<p>组成集合的个别对象成为该集合的 <strong>元素</strong></p>
+</blockquote>
+<h4 id="表示"><a href="#表示" class="headerlink" title="表示"></a>表示</h4><ul>
+<li>一般用大写 ABC 等表示集合</li>
+<li>用小写 abc 等表示集合的元素</li>
+<li>不含任何元素的集合叫做空集 用 <strong>∅</strong> 表示</li>
+<li>a ∈ A 表示 a 是 A 中的元素</li>
+<li>a ∉ A 表示 a 不是 A 中的元素</li>
+<li>A = { x | x 具有性质 P(x)}<blockquote>
+<p>例：A = { x | x &gt; 0, x ∈ R}</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="特殊数集"><a href="#特殊数集" class="headerlink" title="特殊数集"></a>特殊数集</h4><ul>
+<li>N 自然数集<blockquote>
+<p>自然数由0开始，一个接一个，即用数码0，1，2，3，4……所表示的数。</p>
+</blockquote>
+</li>
+<li>Z 整数集<blockquote>
+<p>由全体整数组成的集合叫整数集。它包括全体正整数、全体负整数和零</p>
+</blockquote>
+</li>
+<li>Q 有理数集<blockquote>
+<p>有理数集，即由所有有理数所构成的集合。</p>
+<br>
+有理数集是实数集的子集，即 Q ∈ R <br>
+有理数集是一个无穷集，不存在最大值或最小值。</blockquote>
+</li>
+<li>R 实数集<blockquote>
+<p>实数集通俗地认为，通常包含所有有理数和无理数的集合就是实数集，通常用大写字母R表示</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h4><p> 设 A，B 为两个集合</p>
+<ol>
+<li>若 ∀x(任意X) ∈ A,必有 x ∈ B。则 A ⊆ B ( A 包含于 B)</li>
+<li>若 A ⊆ B， 且 B ⊆ A。则 A = B</li>
+<li>并集：A ∪ B = { x | x ∈ A 或 x ∈ B }</li>
+<li>交集：A ∩ B = { x | x ∈ A 且 x ∈ B }</li>
+<li>子集：子集是一个数学概念：如果集合 A 的任意一个元素都是集合 B 的元素，那么集合 A 称为集合 B 的子集。<br>
+符号语言：若 ∀a ∈ A，均有 a ∈ B，则 A ⊆ B</li>
+<li>差集：A \ B = { x | x ∈ A 且 x ∉ B}</li>
+<li>余集：若 X 为全集或基本集，<br>
+A 的余集(符号不知道怎么打) = X \ A = { x | x ∈ X 但 x ∉ A}
+
+</li>
+</ol>
+<p><img src="./img/jihe.png" alt="集合"></p>
+<h4 id="集合的运算法则"><a href="#集合的运算法则" class="headerlink" title="集合的运算法则"></a>集合的运算法则</h4><blockquote>
+<p>设 A，B，C 为三个集合，则有</p>
+<ol>
+<li>交换律:<br>A ∪ B = B ∪ A,  A ∩ B = B ∩ A</li>
+<li>结合律:<br>(A ∪ B) ∪ C = A ∪ (B ∪ C)<br>
+(A ∩ B) ∩ C = A ∩ (B ∩ C)</li>
+<li>分配率<br>(A ∪ B) ∩ C = (A ∩ C) ∪ (B ∩ C)<br>
+(A ∩ B) ∪ C = (A ∪ C) ∩ (B ∪ C)
+</li>
+</ol>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>math</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>go mod</title>
+    <url>/post/c91ca214e12a0715ec3ef2e5138df095</url>
+    <content><![CDATA[<h2 id="go-mod-命令"><a href="#go-mod-命令" class="headerlink" title="go mod 命令"></a>go mod 命令</h2><p>go mod tidy</p>
+<p>拉取缺少的模块，移除不用的模块。</p>
+<p>go mod vendor</p>
+<p>将依赖复制到vendor下。</p>
+<p>go mod download</p>
+<p>下载依赖包。</p>
+<p>go mod verify</p>
+<p>检验依赖。</p>
+<p>go mod graph</p>
+<p>打印模块依赖图。</p>
+]]></content>
+      <categories>
+        <category>基础</category>
+        <category>golang</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis 基础</title>
+    <url>/post/ad5349d96fa51cfcba0c2b956819d91f</url>
+    <content><![CDATA[<ul>
+<li>redis-cli</li>
+<li>flushdb 清空数据库数据</li>
+<li>flushall 清空全部数据库数据</li>
+<li>select 切换数据库 0~15</li>
+<li>string <ul>
+<li>SET key value []</li>
+<li>GET key</li>
+<li>DEL </li>
+</ul>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>基础</category>
         <category>Redis</category>
@@ -118,38 +467,117 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCode 669 修剪二叉搜索树]]></title>
-    <url>%2F%2Fpost%2Fnotes%2F%E7%AE%97%E6%B3%95%2FLeetCode%20%23669%20%E4%BF%AE%E5%89%AA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91.html</url>
-    <content type="text"><![CDATA[题目描述 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。 拓展 二叉搜索树的性质： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值 代码实现/** * Definition for a binary tree node. * class TreeNode { * public $val = null; * public $left = null; * public $right = null; * function __construct($value) { $this-&gt;val = $value; } * } */ class Solution { /** * @param TreeNode $root * @param Integer $L * @param Integer $R * @return TreeNode */ function trimBST($root, $L, $R) { if($root-&gt;val === null){ return null; } if($root-&gt;val &gt; $R){ return $this-&gt;trimBST($root-&gt;left,$L,$R); } if($root-&gt;val &lt; $L){ return $this-&gt;trimBST($root-&gt;right,$L,$R); } $root-&gt;left = $this-&gt;trimBST($root-&gt;left,$L,$R); $root-&gt;right = $this-&gt;trimBST($root-&gt;right,$L,$R); return $root; } }]]></content>
+    <title>golang grpc</title>
+    <url>/post/f7a4b8e06b0d1e56f5f6ae9b5e5dc511</url>
+    <content><![CDATA[<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>1.从github上下载protobuf3</p>
+<p><a href="https://github.com/protocolbuffers/protobuf/releases/" target="_blank" rel="noopener">protobuf3下载地址</a></p>
+<p>有很多语言版本的，mac下选择第一个。</p>
+<p>2.下载下来后解压压缩包，并进入目录</p>
+<pre><code>cd protobuf-3.7.0/</code></pre><p>3.设置编译目录</p>
+<pre><code>./configure --prefix=/usr/local/protobuf</code></pre><p>4.切换到root用户</p>
+<pre><code>sudo -i</code></pre><p>5.安装</p>
+<pre><code>make
+make install</code></pre><p>6.配置环境变量</p>
+<p>找到用户目录/Users/pauljiang 的 .bash_profile文件并编辑</p>
+<pre><code>vim .bash_profile</code></pre><p>按一下回车键</p>
+<p>按i进入编辑模式</p>
+<p>添加</p>
+<pre><code>export PROTOBUF=/usr/local/protobuf 
+export PATH=$PROTOBUF/bin:$PATH</code></pre><p>source一下使文件生效</p>
+<pre><code>source .bash_profile</code></pre><p>7.测试安装结果</p>
+<pre><code class="shell">protoc --version</code></pre>
+<h2 id="生成中间文件"><a href="#生成中间文件" class="headerlink" title="生成中间文件"></a>生成中间文件</h2><pre><code>protoc --go_out=../services Prod.proto</code></pre><pre><code>protoc --go_out=plugins=grpc:../service Prod.proto</code></pre><h3 id="openssl-生成证书"><a href="#openssl-生成证书" class="headerlink" title="openssl 生成证书"></a>openssl 生成证书</h3><pre><code>#生成
+openssl genrsa -aes128 -out fd.key 2048
+
+ openssl req -new -key fd.key -out fd.csr
+
+#删除密码
+openssl rsa -in fd.key  -out fd-public.key
+
+
+openssl x509 -req -days 365 -in fd.csr -signkey fd.key -out fd.crt</code></pre>]]></content>
+  </entry>
+  <entry>
+    <title>golang json</title>
+    <url>/post/6942d4613a9c7822cc20ed4e4fe98d6f</url>
+    <content><![CDATA[<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><h4 id="struct-gt-json"><a href="#struct-gt-json" class="headerlink" title="struct &gt; json"></a>struct &gt; json</h4><blockquote>
+<p>json.Marshal()</p>
+</blockquote>
+<h4 id="json-gt-interface"><a href="#json-gt-interface" class="headerlink" title="json &gt; interface{}"></a>json &gt; interface{}</h4><blockquote>
+<p>json.Unmarshal()</p>
+</blockquote>
+<h4 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h4><blockquote>
+</blockquote>
+<pre><code class="golang">type Persion struct{
+    Name string `json:&quot;-&quot;` //忽略
+    Name string `json:&quot;name&quot;`// 转成json的字段值
+    Name string `json:&quot;name,omitempty&quot;` // omitempty 空值/零值时会省略不转换
+    Name string `json:&quot;,omitempty&quot;` //使用字段名作为json名，并且会跳过零值
+}</code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>golang MPG</title>
+    <url>/post/af6a52c00921864432cb97c381323e02</url>
+    <content><![CDATA[<h3 id="MPG"><a href="#MPG" class="headerlink" title="MPG"></a>MPG</h3><blockquote>
+<p><strong>M</strong> 指 <strong>Machine</strong>,一个 <strong>M</strong> 关联一个内核线程 由操作系统管理。</p>
+<blockquote>
+<p>数量问题：Go语言本身限定 M 的上限是1000，或在 runtime/debug 包中的 SetMaxThreads() 设置。</p>
+</blockquote>
+<blockquote>
+<p>M 动态创建，有一个 M 阻塞（goroutine）,会创建新的 M。如果有M空闲，会回收或眨眼</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>P</strong> 指 <strong>处理器(Processor)</strong>, 代表了 <strong>M</strong> 所需的上下文环境，也是处理用户级代码逻辑的处理器。负责衔接 <strong>M</strong> 和 <strong>G</strong> 的上下文调度，将等待执行的 <strong>G</strong> 与 <strong>M</strong> 对接。</p>
+<blockquote>
+<p>数量问题: 环境变量 $GOMAXPROCS，或在程序中通过 runtime.GOMAXPROCS(runtime.NumCPU())设置。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>G</strong> 指 <strong>Goroutine</strong>，本质是一种轻量级的线程。包括了调用栈，重要的调度信息，如 <strong>channel</strong> 等。</p>
+<blockquote>
+<p>创建 goroutine 栈内存消耗 2kb，运行过程中内存不够会自动扩容</p>
+</blockquote>
+<blockquote>
+<p>所有协程都是同级的，不分父子关系。</p>
+</blockquote>
+</blockquote>
+]]></content>
       <categories>
-        <category>算法</category>
-        <category>LeetCode</category>
+        <category>golang</category>
       </categories>
       <tags>
-        <tag>LeetCode</tag>
+        <tag>golang</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCode 965 单值二叉树]]></title>
-    <url>%2F%2Fpost%2Fnotes%2F%E7%AE%97%E6%B3%95%2FLeetCode%20%23965%20%E5%8D%95%E5%80%BC%E4%BA%8C%E5%8F%89%E6%A0%91.html</url>
-    <content type="text"><![CDATA[题目描述 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。 代码实现PHP&lt;?php /** * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。 * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。 * Definition for a binary tree node. * class TreeNode { * public $val = null; * public $left = null; * public $right = null; * function __construct($value) { $this-&gt;val = $value; } * } */ class Solution { /** * @param TreeNode $root * @return Boolean */ function isUnivalTree($root) { if($root == null){ return true; } if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val) ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val)){ return false; } if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false){ return false; } return true; } } Golang/** * Definition for a binary tree node. * type TreeNode struct { * Val int * Left *TreeNode * Right *TreeNode * } */ func isUnivalTree(root *TreeNode) bool { if(root == nil){ return true } if((root.Left != nil &amp;&amp; root.Val != root.Left.Val) || (root.Right != nil &amp;&amp; root.Val != root.Right.Val)){ return false } if(isUnivalTree(root.Left) == false || false == isUnivalTree(root.Right)){ return false } return true }]]></content>
-      <categories>
-        <category>算法</category>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-      </tags>
+    <title>golang 三色标记法</title>
+    <url>/post/e79c8749091376d4541cb2d93f2d3592</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title><![CDATA[CentOs 中安装Chrome+ChromeDriver]]></title>
-    <url>%2F%2Fpost%2Fnotes%2FCentOs%20%E4%B8%AD%E5%AE%89%E8%A3%85Chrome%2BChromeDriver.html</url>
-    <content type="text"><![CDATA[安装Chrome1.安装Chromecurl https://intoli.com/install-google-chrome.sh | bash2.测试浏览器google-chrome-stable --no-sandbox --headless --disable-gpu --screenshot https://www.baidu.com/ 会保存一张图片在当前路径 安装ChromeDriver查看Chrome版本google-chrome --version查找对应的驱动的网址 http://chromedriver.storage.googleapis.com/index.html*下载安装包wget http://chromedriver.storage.googleapis.com/78.0.3904.70/chromedriver_linux64.zip解压# 没有 unzip 使用 yum 安装即可 unzip chromedriver_linux64.zip 解压完成后可将可执行文件移到bin目录方便后续使用mv chromedriver /usr/bin/]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[golang 交叉编译]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgolang%20%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91.html</url>
-    <content type="text"><![CDATA[Mac 下编译 Linux 和 Windows 64位可执行程序 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.goLinux 下编译 Mac 和 Windows 64位可执行程序 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build main.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build main.goWindows 下编译 Mac 和 Linux 64位可执行程序 SET CGO_ENABLED=0 SET GOOS=darwin SET GOARCH=amd64 go build main.go SET CGO_ENABLED=0 SET GOOS=linux SET GOARCH=amd64 go build main.goGOOS：目标平台的操作系统（darwin、freebsd、linux、windows）GOARCH：目标平台的体系架构（386、amd64、arm）交叉编译不支持 CGO 所以要禁用它 上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序]]></content>
+    <title>golang 交叉编译</title>
+    <url>/post/f6eab270974ee0fbaf611254e9e11416</url>
+    <content><![CDATA[<p>Mac 下编译 Linux 和 Windows 64位可执行程序</p>
+<pre class="line-numbers language-none"><code class="language-none">CGO_ENABLED&#x3D;0 GOOS&#x3D;linux GOARCH&#x3D;amd64 go build main.go
+CGO_ENABLED&#x3D;0 GOOS&#x3D;windows GOARCH&#x3D;amd64 go build main.go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Linux 下编译 Mac 和 Windows 64位可执行程序</p>
+<pre class="line-numbers language-none"><code class="language-none">CGO_ENABLED&#x3D;0 GOOS&#x3D;darwin GOARCH&#x3D;amd64 go build main.go
+CGO_ENABLED&#x3D;0 GOOS&#x3D;windows GOARCH&#x3D;amd64 go build main.go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Windows 下编译 Mac 和 Linux 64位可执行程序</p>
+<pre class="line-numbers language-none"><code class="language-none">SET CGO_ENABLED&#x3D;0
+SET GOOS&#x3D;darwin
+SET GOARCH&#x3D;amd64
+go build main.go
+
+SET CGO_ENABLED&#x3D;0
+SET GOOS&#x3D;linux
+SET GOARCH&#x3D;amd64
+go build main.go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）<br>GOARCH：目标平台的体系架构（386、amd64、arm）<br>交叉编译不支持 CGO 所以要禁用它</p>
+<p>上面的命令编译 64 位可执行程序，你当然应该也会使用 386 编译 32 位可执行程序</p>
+]]></content>
       <categories>
         <category>基础</category>
         <category>golang</category>
@@ -159,9 +587,100 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux screen]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Flinux%2FLinux%20screen.html</url>
-    <content type="text"><![CDATA[screen⌘ Command（或 Cmd）⌘Shift ⇧Option（或 Alt）⌥Control（或 Ctrl）⌃Caps Lock ⇪Fn]]></content>
+    <title>Linux ls</title>
+    <url>/post/5f8cb416ad6efe9e46d235a71f3caf21</url>
+    <content><![CDATA[<h1 id="ls-命令"><a href="#ls-命令" class="headerlink" title="ls 命令"></a>ls 命令</h1><blockquote>
+<p>-ls 就能看到在当前目录下所有文件和子目录的列表。</p>
+</blockquote>
+<p>ls 命令选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>长选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>–all</td>
+<td>列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>–directory</td>
+<td>通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>–classify</td>
+<td>这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>–human-readable</td>
+<td>当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>-</td>
+<td>以长格式显示结果。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>–reverse</td>
+<td>以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>-</td>
+<td>命令输出结果按照文件大小来排序。</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>-</td>
+<td>按照修改时间来排序。</td>
+</tr>
+</tbody></table>
+<h2 id="ls-l"><a href="#ls-l" class="headerlink" title="ls -l"></a>ls -l</h2><pre><code>[root@iZ28jjwy44gZ ~]# ls -l
+总用量 8976
+drwxr-xr-x  6 root root     4096 6月  19 07:16 blog
+drwxr-xr-x  2 root root     4096 1月  26 2019 certbot
+drwxr-xr-x  6 root root     4096 5月  31 12:07 compose
+drwxr-xr-x  3 root root     4096 1月  30 2019 goproduct
+drwxr-xr-x  4 root root     4096 1月  26 2019 logs
+drwxr-xr-x  5 root root     4096 2月  13 2019 nginx
+drwxr-xr-x  9 1001  1001    4096 1月  30 2019 nginx-1.15.8
+-rw-r--r--  1 root root  1027862 12月 25 2018 nginx-1.15.8.tar.gz
+drwxr-xr-x 18 root root     4096 1月  30 2019 openssl-1.1.0j
+-rw-r--r--  1 root root  5411919 11月 20 2018 openssl-1.1.0j.tar.gz
+drwxr-xr-x  9 1169  1169   12288 1月  30 2019 pcre-8.42
+-rw-r--r--  1 root root  2081413 4月   2 2018 pcre-8.42.tar.gz
+drwxr-xr-x  2 root root     4096 6月  24 14:32 php
+drwxr-xr-x 14  501 games    4096 1月  30 2019 zlib-1.2.11
+-rw-r--r--  1 root root   607698 1月  16 2017 zlib-1.2.11.tar.gz</code></pre><table>
+<thead>
+<tr>
+<th>drwxr-xr-x</th>
+<th>6</th>
+<th>root</th>
+<th>root</th>
+<th>4096</th>
+<th>6月  19 07:16</th>
+<th>blog</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对于文件的访问权限</td>
+<td>文件的硬链接数目</td>
+<td>文件所有者的用户名</td>
+<td>文件所属用户组的名字</td>
+<td>以字节数表示的文件大小</td>
+<td>上次修改文件的时间和日期</td>
+<td>文件名</td>
+</tr>
+</tbody></table>
+]]></content>
       <categories>
         <category>基础</category>
         <category>Linux</category>
@@ -171,21 +690,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[go mod]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Fgolang%2Fgo%20mod.html</url>
-    <content type="text"><![CDATA[go mod 命令go mod tidy 拉取缺少的模块，移除不用的模块。 go mod vendor 将依赖复制到vendor下。 go mod download 下载依赖包。 go mod verify 检验依赖。 go mod graph 打印模块依赖图。]]></content>
-      <categories>
-        <category>基础</category>
-        <category>golang</category>
-      </categories>
-      <tags>
-        <tag>golang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Linux ls]]></title>
-    <url>%2F%2Fpost%2Fnotes%2Flinux%2FLinux%20ls.html</url>
-    <content type="text"><![CDATA[ls 命令 -ls 就能看到在当前目录下所有文件和子目录的列表。 ls 命令选项 选项 长选项 描述 -a –all 列出所有文件，甚至包括文件名以圆点开头的默认会被隐藏的隐藏文件。 -d –directory 通常，如果指定了目录名，ls 命令会列出这个目录中的内容，而不是目录本身。 把这个选项与 -l 选项结合使用，可以看到所指定目录的详细信息，而不是目录中的内容。 -F –classify 这个选项会在每个所列出的名字后面加上一个指示符。例如，如果名字是 目录名，则会加上一个’/‘字符。 -h –human-readable 当以长格式列出时，以人们可读的格式，而不是以字节数来显示文件的大小。 -l - 以长格式显示结果。 -r –reverse 以相反的顺序来显示结果。通常，ls 命令的输出结果按照字母升序排列。 -S - 命令输出结果按照文件大小来排序。 -t - 按照修改时间来排序。 ls -l[root@iZ28jjwy44gZ ~]# ls -l 总用量 8976 drwxr-xr-x 6 root root 4096 6月 19 07:16 blog drwxr-xr-x 2 root root 4096 1月 26 2019 certbot drwxr-xr-x 6 root root 4096 5月 31 12:07 compose drwxr-xr-x 3 root root 4096 1月 30 2019 goproduct drwxr-xr-x 4 root root 4096 1月 26 2019 logs drwxr-xr-x 5 root root 4096 2月 13 2019 nginx drwxr-xr-x 9 1001 1001 4096 1月 30 2019 nginx-1.15.8 -rw-r--r-- 1 root root 1027862 12月 25 2018 nginx-1.15.8.tar.gz drwxr-xr-x 18 root root 4096 1月 30 2019 openssl-1.1.0j -rw-r--r-- 1 root root 5411919 11月 20 2018 openssl-1.1.0j.tar.gz drwxr-xr-x 9 1169 1169 12288 1月 30 2019 pcre-8.42 -rw-r--r-- 1 root root 2081413 4月 2 2018 pcre-8.42.tar.gz drwxr-xr-x 2 root root 4096 6月 24 14:32 php drwxr-xr-x 14 501 games 4096 1月 30 2019 zlib-1.2.11 -rw-r--r-- 1 root root 607698 1月 16 2017 zlib-1.2.11.tar.gz drwxr-xr-x 6 root root 4096 6月 19 07:16 blog 对于文件的访问权限 文件的硬链接数目 文件所有者的用户名 文件所属用户组的名字 以字节数表示的文件大小 上次修改文件的时间和日期 文件名]]></content>
+    <title>Linux screen</title>
+    <url>/post/180caaa829345bfd949e059951dab6a8</url>
+    <content><![CDATA[<h1 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h1><p>⌘</p>
+<p>Command（或 Cmd）⌘<br>Shift ⇧<br>Option（或 Alt）⌥<br>Control（或 Ctrl）⌃<br>Caps Lock ⇪<br>Fn</p>
+]]></content>
       <categories>
         <category>基础</category>
         <category>Linux</category>
@@ -195,16 +704,339 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[高数一-函数]]></title>
-    <url>%2F%2Fpost%2Fnotes%2F%E9%AB%98%E6%95%B0%E4%B8%80-%E5%87%BD%E6%95%B0.html</url>
-    <content type="text"><![CDATA[函数集合定义 具有某种确定性质的对象的全体集合成为一个 集合 组成集合的个别对象成为该集合的 元素 表示 一般用大写 ABC 等表示集合 用小写 abc 等表示集合的元素 不含任何元素的集合叫做空集 用 ∅ 表示 a ∈ A 表示 a 是 A 中的元素 a ∉ A 表示 a 不是 A 中的元素 A = { x | x 具有性质 P(x)} 例：A = { x | x &gt; 0, x ∈ R} 特殊数集 N 自然数集 自然数由0开始，一个接一个，即用数码0，1，2，3，4……所表示的数。 Z 整数集 由全体整数组成的集合叫整数集。它包括全体正整数、全体负整数和零 Q 有理数集 有理数集，即由所有有理数所构成的集合。 有理数集是实数集的子集，即 Q ∈ R 有理数集是一个无穷集，不存在最大值或最小值。 R 实数集 实数集通俗地认为，通常包含所有有理数和无理数的集合就是实数集，通常用大写字母R表示 集合运算 设 A，B 为两个集合 若 ∀x(任意X) ∈ A,必有 x ∈ B。则 A ⊆ B ( A 包含于 B) 若 A ⊆ B， 且 B ⊆ A。则 A = B 并集：A ∪ B = { x | x ∈ A 或 x ∈ B } 交集：A ∩ B = { x | x ∈ A 且 x ∈ B } 子集：子集是一个数学概念：如果集合 A 的任意一个元素都是集合 B 的元素，那么集合 A 称为集合 B 的子集。 符号语言：若 ∀a ∈ A，均有 a ∈ B，则 A ⊆ B 差集：A \ B = { x | x ∈ A 且 x ∉ B} 余集：若 X 为全集或基本集， A 的余集(符号不知道怎么打) = X \ A = { x | x ∈ X 但 x ∉ A} 集合的运算法则 设 A，B，C 为三个集合，则有 交换律:A ∪ B = B ∪ A, A ∩ B = B ∩ A 结合律:(A ∪ B) ∪ C = A ∪ (B ∪ C) (A ∩ B) ∩ C = A ∩ (B ∩ C) 分配率(A ∪ B) ∩ C = (A ∩ C) ∪ (B ∩ C) (A ∩ B) ∪ C = (A ∪ C) ∩ (B ∪ C)]]></content>
+    <title>LeetCode 965 单值二叉树</title>
+    <url>/post/d0ad05be6d45fad86cbf2deb91d4493c</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。只有给定的树是单值二叉树时，才返回 true；否则返回 false。</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><pre><code class="php">&lt;?php
+/**
+ * 如果二叉树每个节点都具有相同的值，那么该二叉树就是单值二叉树。
+ * 只有给定的树是单值二叉树时，才返回 true；否则返回 false。
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     public $val = null;
+ *     public $left = null;
+ *     public $right = null;
+ *     function __construct($value) { $this-&gt;val = $value; }
+ * }
+ */
+class Solution {
+
+    /**
+     * @param TreeNode $root
+     * @return Boolean
+     */
+    function isUnivalTree($root) {
+        if($root ==  null){
+            return true;
+        }
+
+        if(($root-&gt;left !== null &amp;&amp; $root-&gt;val != $root-&gt;left-&gt;val)
+            ||($root-&gt;right !== null &amp;&amp; $root-&gt;val != $root-&gt;right-&gt;val)){
+            return false;
+        }
+
+        if($this-&gt;isUnivalTree($root-&gt;left) === false|| $this-&gt;isUnivalTree($root-&gt;right) === false){
+            return false;
+        }
+        return true;
+    }
+}</code></pre>
+<h2 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h2><pre><code class="golang">/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func isUnivalTree(root *TreeNode) bool {
+    if(root == nil){
+        return true
+    }
+
+    if((root.Left != nil &amp;&amp; root.Val != root.Left.Val) || (root.Right != nil &amp;&amp; root.Val != root.Right.Val)){
+        return false
+    }
+
+    if(isUnivalTree(root.Left) == false || false == isUnivalTree(root.Right)){
+        return false
+    }
+    return true
+}</code></pre>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>LeetCode</category>
+      </categories>
       <tags>
-        <tag>math</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[无头浏览器-Chrome]]></title>
-    <url>%2F%2Fpost%2Fnotes%2F%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8-Chrome.html</url>
-    <content type="text"><![CDATA[简介很久都没有搞Python了，最近想去爬取一个网站，发现网站内容是用js生成的，然后就想到了用无头浏览器去处理，之前了解的都是PhantomJS，但是在网上查阅了一些资料后得知PhantomJS停止维护了，而且新版的selenium好像不支持PhantomJS了，需要使用 Chrome 或者 Firefox。 因为我平时用的浏览器就是 Chrome，最后决定用 Chrome 的无头模式来做。 准备 需要通过pip安装 selenium 模块 提前安装好 Chrome 最后还需要下载一个Chrome的驱动才能使用，下载的时候需要根据本地 Chrome 的版本，下载对应的驱动。 下载完 Chromedriver 后我是把 Chromedriver 这个驱动放到了环境变量里。这样方便写代码调用。 ##]]></content>
+    <title>LeetCode 669 修剪二叉搜索树</title>
+    <url>/post/39a05a73cee7274b5d07ab816d4af700</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><blockquote>
+<p>给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R&gt;=L) 。你可能需要改变树的根节点，所以结果应当返回修剪好的二叉搜索树的新的根节点。</p>
+</blockquote>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><blockquote>
+<p>二叉搜索树的性质： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值</p>
+</blockquote>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre><code class="php">/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     public $val = null;
+ *     public $left = null;
+ *     public $right = null;
+ *     function __construct($value) { $this-&gt;val = $value; }
+ * }
+ */
+class Solution {
+
+    /**
+     * @param TreeNode $root
+     * @param Integer $L
+     * @param Integer $R
+     * @return TreeNode
+     */
+    function trimBST($root, $L, $R) {
+        if($root-&gt;val === null){
+            return null;
+        }
+        if($root-&gt;val &gt; $R){
+            return $this-&gt;trimBST($root-&gt;left,$L,$R);
+        }
+        if($root-&gt;val &lt; $L){
+            return $this-&gt;trimBST($root-&gt;right,$L,$R);
+        }
+        $root-&gt;left = $this-&gt;trimBST($root-&gt;left,$L,$R);
+        $root-&gt;right = $this-&gt;trimBST($root-&gt;right,$L,$R);
+        return $root;
+    }
+}</code></pre>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树莓派默认登陆密码</title>
+    <url>/post/bc57623a0ff3189b988f44b76a4194b6</url>
+    <content><![CDATA[<h1 id="树莓派默认密码"><a href="#树莓派默认密码" class="headerlink" title="树莓派默认密码"></a>树莓派默认密码</h1><blockquote>
+<p>默认用户是 pi 密码为 raspberry</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>树莓派</category>
+      </categories>
+      <tags>
+        <tag>树莓派</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue 指令</title>
+    <url>/post/abcc3b20e3cb7991c6867f8842ce3d16</url>
+    <content><![CDATA[<ul>
+<li><p>v-for : 循环渲染</p>
+</li>
+<li><p>v-if : </p>
+</li>
+<li><p>v-html : </p>
+</li>
+<li><p>v-on : 注册事件</p>
+<ul>
+<li>简写: <code>@</code></li>
+<li>支持指令修饰符<ul>
+<li>@click.prevent 禁止默认事件</li>
+<li>@click.stop 禁止冒泡</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>v-bind : 绑定动态属性</p>
+<ul>
+<li>简写: <code>:</code></li>
+</ul>
+</li>
+<li><p>v-show : </p>
+</li>
+<li><p>v-model : 双向绑定</p>
+</li>
+<li><p>v-slot :</p>
+</li>
+<li><p>v-text :</p>
+</li>
+<li><p>v-pre :</p>
+</li>
+<li><p>v-cloak :</p>
+</li>
+<li><p>v-once :</p>
+</li>
+<li><p>v-key :<br>  - </p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vue 属性</title>
+    <url>/post/9da20991276e09605c3f76d7d1539eeb</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/post/undefined</url>
+    <content><![CDATA[<p><strong>cron表达式</strong></p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">┌─────────────second <span class="token function">范围</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">-</span> <span class="token number">60</span><span class="token punctuation">)</span>
+│ ┌───────────── <span class="token function">min</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">-</span> <span class="token number">59</span><span class="token punctuation">)</span>
+│ │ ┌────────────── <span class="token function">hour</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">-</span> <span class="token number">23</span><span class="token punctuation">)</span>
+│ │ │ ┌─────────────── day <span class="token keyword">of</span> <span class="token function">month</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token number">31</span><span class="token punctuation">)</span>
+│ │ │ │ ┌──────────────── <span class="token function">month</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token number">12</span><span class="token punctuation">)</span>
+│ │ │ │ │ ┌───────────────── day <span class="token keyword">of</span> <span class="token function">week</span> <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">-</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">0</span> to <span class="token number">6</span> are Sunday
+│ │ │ │ │ │                  to Saturday<span class="token punctuation">)</span>
+│ │ │ │ │ │
+│ │ │ │ │ │
+<span class="token operator">*</span> <span class="token operator">*</span> <span class="token operator">*</span> <span class="token operator">*</span> <span class="token operator">*</span> <span class="token operator">*</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>匹配符号</strong></p>
+<ol>
+<li>星号(*) :<code>表示 cron 表达式能匹配该字段的所有值。如在第5个字段使用星号(month)，表示每个月</code></li>
+<li>斜线(/):<code>表示增长间隔，如第2个字段(minutes) 值是 3-59/15，表示每小时的第3分钟开始执行一次，之后 每隔 15 分钟执行一次（即 3（3+0*15）、18（3+1*15）、33（3+2*15）、48（3+3*15） 这些时间点执行），这里也可以表示为：3/15</code></li>
+<li>逗号(,):<code>用于枚举值，如第6个字段值是 MON,WED,FRI，表示 星期一、三、五 执行</code></li>
+<li>连字号(-):<code>表示一个范围，如第3个字段的值为 9-17 表示 9am 到 5pm 直接每个小时（包括9和17）</code></li>
+<li>问号(?):<code>只用于 日(Day of month) 和 星期(Day of week)，表示不指定值，可以用于代替 *</code></li>
+</ol>
+<p><strong>example</strong></p>
+<p><code>&quot;0 0 0 1 * *&quot;</code> // 表示每个月1号的00:00:00</p>
+<p> <code>&quot;0 1 1 1 * *&quot;</code> // 表示每个月1号的01:01:00</p>
+<p>每隔5秒执行一次：<code>&quot;*/5 * * * * ?&quot;</code> 或 <code>&quot;*/5 * * * * *&quot;</code> </p>
+<p>每隔1分钟执行一次：<code>&quot;0 */1 * * * ?&quot;</code> </p>
+<p>每天23点执行一次：<code>&quot;0 0 23 * * ?&quot;</code> </p>
+<p>每天凌晨1点执行一次：<code>&quot;0 0 1 * * ?&quot;</code> </p>
+<p>每月1号凌晨1点执行一次：<code>&quot;0 0 1 1 * ?&quot;</code> </p>
+<p>在26分、29分、33分执行一次：<code>&quot;0 26,29,33 * * * ?&quot;</code> </p>
+<p>每天的0点、13点、18点、21点都执行一次：<code>&quot;0 0 0,13,18,21 * * ?&quot;</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>centos7 国内源</title>
+    <url>/post/df235ddac47d2389dfd6ad75db9c62de</url>
+    <content><![CDATA[<h3 id="清华大学yum源"><a href="#清华大学yum源" class="headerlink" title="清华大学yum源"></a>清华大学yum源</h3><p>参考地址：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/centos/">https://mirrors.tuna.tsinghua.edu.cn/help/centos/</a></p>
+<h3 id="网易yum源"><a href="#网易yum源" class="headerlink" title="网易yum源"></a>网易yum源</h3><p>参考地址：<a href="http://mirrors.163.com/.help/centos.html">http://mirrors.163.com/.help/centos.html</a></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">wget</span>
+<span class="token function">rm</span> -rf /etc/yum.repo.d/*
+<span class="token function">wget</span> -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
+yum clean all <span class="token operator">&amp;&amp;</span> yum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote><span class="custom-blockquote-svg"><svg width="24" height="24" viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg" data-reactroot="">
+<path fill="" d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C13.8 22 15.5 21.5 17 20.6L22 22L20.7 17C21.5 15.5 22 13.8 22 12Z" undefined="1"></path>
+<path fill="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z" undefined="1"></path>
+<path fill="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z" undefined="1"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M17 8.5C15.23 8.97 14.07 10.84 14.01 13.27C14 13.33 14 13.4 14 13.47V13.5"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M9 8.5C7.23 8.97 6.07 10.84 6.01 13.27C6 13.33 6 13.4 6 13.47V13.5"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M15.97 11.5H16.04C17.12 11.5 18 12.38 18 13.47V13.53C18 14.62 17.12 15.5 16.03 15.5H15.96C14.88 15.5 14 14.62 14 13.53V13.46C14 12.38 14.88 11.5 15.97 11.5Z"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" stroke="" d="M7.97 11.5H8.04C9.12 11.5 10 12.38 10 13.47V13.53C10 14.62 9.12 15.5 8.03 15.5H7.97C6.88 15.5 6 14.62 6 13.53V13.46C6 12.38 6.88 11.5 7.97 11.5Z"></path>
+</svg>
+</span><p>或者： </p></blockquote>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> yum-utils
+yum-config-manager --add-repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
+<span class="token function">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak
+<span class="token function">mv</span> /etc/yum.repos.d/CentOS7-Base-163.repo /etc/yum.repos.d/CentOS-Base.repo
+yum clean all <span class="token operator">&amp;&amp;</span> yum makecache
+yum repolist<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="阿里云yum源"><a href="#阿里云yum源" class="headerlink" title="阿里云yum源"></a>阿里云yum源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> yum-utils
+yum-config-manager --add-repo http://mirrors.aliyun.com/repo/Centos-7.repo
+<span class="token function">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak
+<span class="token function">mv</span> /etc/yum.repos.d/Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo
+yum clean all <span class="token operator">&amp;&amp;</span> yum makecache <span class="token operator">&amp;&amp;</span> yum repolist<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="中科大yum源"><a href="#中科大yum源" class="headerlink" title="中科大yum源"></a>中科大yum源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">wget</span>
+<span class="token function">rm</span> -rf /etc/yum.repos.d/*
+<span class="token function">wget</span> -O /etc/yum.repos.d/CentOS-Base.repo <span class="token string">'https://lug.ustc.edu.cn/wiki/_export/code/mirrors/help/centos?codeblock=3'</span>
+yum clean all <span class="token operator">&amp;&amp;</span> yum makecache<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="上海交大yum源"><a href="#上海交大yum源" class="headerlink" title="上海交大yum源"></a>上海交大yum源</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/yum.repos.d/CentOS-Base.repo 
+
+<span class="token punctuation">[</span>base<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7- Base
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://ftp.sjtu.edu.cn/centos/<span class="token variable">$releasever</span>/os/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/RPM-GPG-KEY-CentOS-7
+
+<span class="token punctuation">[</span>update<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Updates
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/<span class="token variable">$releasever</span>/updates/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/RPM-GPG-KEY-CentOS-7
+
+<span class="token punctuation">[</span>extras<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Extras
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/<span class="token variable">$releasever</span>/extras/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/RPM-GPG-KEY-CentOS-7
+
+<span class="token punctuation">[</span>centosplus<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Plus
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/<span class="token variable">$releasever</span>/centosplus/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://ftp.sjtu.edu.cn/centos/RPM-GPG-KEY-CentOS-7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>搜狐yum源</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/yum.repos.d/CentOS-Base.repo 
+
+<span class="token punctuation">[</span>base<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Base
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span>http://mirrors.sohu.com/centos/<span class="token variable">$releasever</span>/os/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/RPM-GPG-KEY-CentOS-7
+
+<span class="token punctuation">[</span>update<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Updates
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/<span class="token variable">$releasever</span>/updates/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/RPM-GPG-KEY-CentOS-7
+
+<span class="token punctuation">[</span>extras<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Extras
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/<span class="token variable">$releasever</span>/extras/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/RPM-GPG-KEY-CentOS-7
+
+<span class="token punctuation">[</span>centosplus<span class="token punctuation">]</span>
+<span class="token assign-left variable">name</span><span class="token operator">=</span>CentOS-7 - Plus
+<span class="token assign-left variable">baseurl</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/<span class="token variable">$releasever</span>/centosplus/<span class="token variable">$basearch</span>/
+<span class="token assign-left variable">gpgcheck</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">enabled</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">gpgkey</span><span class="token operator">=</span> http://mirrors.sohu.com/centos/RPM-GPG-KEY-CentOS-7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="其它yum源"><a href="#其它yum源" class="headerlink" title="其它yum源"></a>其它yum源</h3><p>北京理工大学： <a href="http://mirror.bit.edu.cn">http://mirror.bit.edu.cn</a> 参考地址</p>
+<p>兰州大学：<a href="http://mirror.lzu.edu.cn">http://mirror.lzu.edu.cn</a></p>
+<p>厦门大学：<a href="http://mirrors.xmu.edu.cn">http://mirrors.xmu.edu.cn</a></p>
+<p>中国科学技术大学：<a href="http://mirrors.ustc.edu.cn">http://mirrors.ustc.edu.cn</a></p>
+<p>东北大学：<a href="http://mirror.neu.edu.cn">http://mirror.neu.edu.cn</a></p>
+<p>官方yum源<br>CentOS官方：<a href="http://mirror.centos.org/">http://mirror.centos.org/</a></p>
+]]></content>
   </entry>
 </search>
